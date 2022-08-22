@@ -29,6 +29,8 @@ class TloginController extends Controller
                 return redirect()->intended('/dashboardM');
             }else if(auth()->user()->role_id == '2'){
                 return redirect()->intended('/dashboardS');
+            }else if(auth()->user()->role_id == '5'){
+                return redirect()->intended('/roles');
             }else{
                 return redirect()->intended('/login');
             }

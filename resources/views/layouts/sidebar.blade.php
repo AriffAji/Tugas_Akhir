@@ -75,7 +75,19 @@
       @endif
       {{-- Admin --}}
      
-     
+      @if(auth()->user()->role_id == 5)
+      <ul class="sidebar-menu">
+        <!-- menu header -->
+        <li class="menu-header">Dashboard Admin</li>
+        <!-- menu item -->
+        <li class="nav-item">
+           <a href="/roles"><i class="fas fa-address-card"></i><span>Roles</span></a>
+           <a href="/user"><i class="fas fa-user"></i><span>User</span></a>
+           <a href="/prodi"><i class="fas fa-user"></i><span>Prodi</span></a>
+         
+        </li>     
+      </ul>  
+      @endif
       
 
    

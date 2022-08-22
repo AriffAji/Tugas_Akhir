@@ -20,7 +20,6 @@ class TdosenController extends Controller
     
     public function detail2(){
         $review2 = DB::table('vpembatalandosen')->get();
-        $validation['user_id']= auth()->user()->id;
         return view('dosen.pembatalan', ['review2'=>$review2]);
     }
     

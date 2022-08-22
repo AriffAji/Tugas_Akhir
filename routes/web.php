@@ -9,7 +9,9 @@ use App\Http\Controllers\TsekdirController;
 use App\Http\Controllers\TadminController;
 use App\Http\Controllers\TadmindosenController;
 use App\Http\Controllers\TadminmhsController;
-
+use App\Http\Controllers\superadmin;
+use App\Http\Controllers\userController;
+use App\Http\Controllers\prodiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +49,7 @@ use App\Http\Controllers\TadminmhsController;
 
 
 // Mahasiswa
-    Route::get('/dashboardM', [TmahasiswaController::class, 'beranda'])->name('mahasiswa.dashboard');
+    Route::get('/dashboardM', [TmahasiswaController::class, 'beranda'])->name('mahasiswa.dashboard')->middleware('mahasiswa');
     Route::get('/form', [TmahasiswaController::class, 'index'])->name('mahasiswa.form')->middleware('mahasiswa'); 
     Route::post('/addform', [TmahasiswaController::class, 'tambahdata'])->name('mahasiswa.addform')->middleware('mahasiswa');
     Route::get('/detail', [TmahasiswaController::class, 'detaildata'])->name('mahasiswa.detail')->middleware('mahasiswa');
@@ -75,3 +77,30 @@ use App\Http\Controllers\TadminmhsController;
     Route::patch('updateS/{ID}', [TsekdirController::class, 'update'])->name('sekdir.update')->middleware('sekdir');
     Route::get('/uploads', [TsekdirController::class, 'upload'])->name('sekdir.upload')->middleware('sekdir');
 // sekdir
+
+// superadmin
+    Route::controller(superadmin::class)->group(function () {
+        Route::get('/roles', 'index')->name('role')->middleware('superadmin');
+        Route::get('/roles/add', 'add')->name('add.roles')->middleware('superadmin');
+        Route::post('/roles/store', 'store')->name('save.roles')->middleware('superadmin');
+        Route::get('/roles/edit/{id}', 'edit')->name('edit.roles')->middleware('superadmin');
+        Route::patch('/roles/update/{id}', 'update')->name('update.roles')->middleware('superadmin');
+        Route::get('/hapus/roles/{id}', 'delete')->name('hapus.roles')->middleware('superadmin');
+    });
+    Route::controller(userController::class)->group(function () {
+        Route::get('/user', 'index')->name('user')->middleware('superadmin');
+        Route::get('/user/add', 'add')->name('add.user')->middleware('superadmin');
+        Route::post('/user/store', 'store')->name('save.user')->middleware('superadmin');
+        Route::get('/user/edit/{id}', 'edit')->name('edit.user')->middleware('superadmin');
+        Route::patch('/user/update/{id}', 'update')->name('update.user')->middleware('superadmin');
+        Route::get('/user/roles/{id}', 'delete')->name('hapus.user')->middleware('superadmin');
+    });
+    Route::controller(prodiController::class)->group(function () {
+        Route::get('/prodi', 'index')->name('prodi')->middleware('superadmin');
+        Route::get('/prodi/add', 'add')->name('add.prodi')->middleware('superadmin');
+        Route::post('/prodi/store', 'store')->name('save.prodi')->middleware('superadmin');
+        Route::get('/prodi/edit/{id}', 'edit')->name('edit.prodi')->middleware('superadmin');
+        Route::patch('/prodi/update/{id}', 'update')->name('update.prodi')->middleware('superadmin');
+        Route::get('/prodi/roles/{id}', 'delete')->name('hapus.prodi')->middleware('superadmin');
+    });
+// superadmin

@@ -67,5 +67,6 @@ class Kernel extends HttpKernel
         'mahasiswa' => \App\Http\Middleware\IsMhs::class,
         'dosen' =>  \App\Http\Middleware\IsDosen::class,
         'sekdir' =>  \App\Http\Middleware\IsSekdir::class,
+        'superadmin' =>  \App\Http\Middleware\isSuperAdmin::class,
     ];
 }

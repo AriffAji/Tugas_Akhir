@@ -21,7 +21,7 @@ class TregisterController extends Controller
             'role_id' => ''
         ]);
         $validatedData['password'] = bcrypt($validatedData['password']);
-        $validatedData['role_id']=4;
+        $validatedData['role_id']=1;
         User::create($validatedData);
 
         return redirect('/login')->with('success', 'Berhasil mendaftar!! Silahkan Login');
