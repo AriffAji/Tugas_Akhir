@@ -6,21 +6,18 @@
 
     <div class="col">
                 <form class="card" id="formA">
-                    <div class="card-header" id="form-warna" >
+                    <div class="card-header"  >
                     Header
                     </div>
-                    <div class="row">
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-          
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
+                    <div class="row justify-content-center">
+                       <div>
+                        <div class="login-brand">
+                          <h4>Aplikasi Monitoring Kegiatan Kompetisi Mahasiswa</h4>
+                          <br>
+                          <br>
+                          <img src="/assets/img/logo.png" alt="" style="height:200px" alt="logo" >
+                        </div>
+                      </div>
                     </div>
                     <div class="card-footer" style="text-align: right; margin-right:2%">
                     <div class="row ">

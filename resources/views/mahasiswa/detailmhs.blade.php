@@ -7,7 +7,23 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-               Header
+               
+                @if (session()->has('success'))
+                        <div class="alert alert-success alert-dismissible fade show" style="border-radius:10px" role="alert">
+                          {{ session()->get('success') }}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                @endif
+                  @if (session()->has('loginError'))
+                        <div class="alert alert-danger alert-dismissible fade show" style="border-radius:10px" role="alert">
+                          {{ session()->get('loginError') }}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                @endif
               </div>
             <div class="card-body">               
                 <div class="table-responsive">
@@ -19,9 +35,9 @@
                                 <th class="text-center">Nama Ketua</th>
                                 <th class="text-center">Dosen Pembimbing</th>
                                 <th class="text-center">Nama Kelompok</th>
-                                {{-- <th class="text-center">Anggota 1</th>
-                                <th class="text-center">Anggota 2</th>
-                                <th class="text-center">Anggota 3</th> --}}
+                                {{-- <th class="text-center">Anggota 1</th> --}}
+                                {{-- <th class="text-center">Anggota 2</th> --}}
+                                {{-- <th class="text-center">Anggota 3</th> --}}
                                 <th class="text-center">Tingkatan</th>
                                 <th class="text-center">Pendanaan</th>
                                 <th class="text-center">Waktu Pelaksanaan</th>
@@ -39,9 +55,9 @@
                                 <td class="text-center">{{$nm->nama_ketua}}</td>
                                 <td class="text-center">{{$nm->dosen_pembimbing}}</td>
                                 <td class="text-center">{{$nm->nama_kelompok}}</td>
-                                {{-- <td class="text-center">{{$nm->anggota1}}</td>
-                                <td class="text-center">{{$nm->anggota2}}</td>
-                                <td class="text-center">{{$nm->anggota3}}</td> --}}
+                                {{-- <td class="text-center">{{$nm->anggota1}}</td> --}}
+                                {{-- <td class="text-center">{{$nm->anggota2}}</td> --}}
+                                {{-- <td class="text-center">{{$nm->anggota3}}</td> --}}
                                 <td class="text-center">{{$nm->tingkatan}}</td>
                                 <td class="text-center">{{$nm->pendanaan}}</td>
                                 <td class="text-center">{{$nm->waktu_pelaksanaan}}</td>

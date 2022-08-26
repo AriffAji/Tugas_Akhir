@@ -35,7 +35,7 @@
         <li class=" nav-item">
           <a href="/dashboardS"><i class="fas  fa-address-card"></i><span>Dashboard</span></a>
           <a href="/persetujuans"><i class="fas fa-check-circle"></i><span>Persetujuan</span></a>
-          <a href="/uploads"><i class="fab fa-accusoft"></i><span>Upload File <sub>undermaintanance</sub></span></a>
+          {{-- <a href="/uploads"><i class="fab fa-accusoft"></i><span>Upload File <sub>undermaintanance</sub></span></a> --}}
          
         </li>     
       </ul>  
@@ -74,7 +74,7 @@
       </ul>  
       @endif
       {{-- Admin --}}
-     
+     {{-- superadmin --}}
       @if(auth()->user()->role_id == 5)
       <ul class="sidebar-menu">
         <!-- menu header -->

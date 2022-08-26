@@ -23,12 +23,9 @@
                             <th>Nama Ketua</th>
                             <th>Nama Kelompok</th>
                             <th>Dosen Pembimbing</th>
-                            <th>Anggota 1</th>
-                            <th>Anggota 2</th>
-                            <th>Anggota 3</th>
                             <th>Tingkatan</th>
                             <th>Pendanaan</th>
-                            <th>Proposal</th>
+                            {{-- <th>Proposal</th> --}}
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -125,27 +122,6 @@ const table= $("#table_list").DataTable({
             "class":"",
             "sortable":true,
             "render":function(data,type,row,meta){
-                return row.anggota1
-            }
-        },
-        {
-            "class":"",
-            "sortable":true,
-            "render":function(data,type,row,meta){
-                return row.anggota2
-            }
-        },
-        {
-            "class":"",
-            "sortable":true,
-            "render":function(data,type,row,meta){
-                return row.anggota3
-            }
-        },
-        {
-            "class":"",
-            "sortable":true,
-            "render":function(data,type,row,meta){
                 return row.tingkatan
             }
         },
@@ -156,13 +132,13 @@ const table= $("#table_list").DataTable({
                 return row.pendanaan
             }
         },
-        {
-            "class":"",
-            "sortable":true,
-            "render":function(data,type,row,meta){
-                return row.proposal
-            }
-        },
+        // {
+        //     "class":"",
+        //     "sortable":true,
+        //     "render":function(data,type,row,meta){
+        //         return row.proposal
+        //     }
+        // },
         {
             "class":"",
             "sortable":true,

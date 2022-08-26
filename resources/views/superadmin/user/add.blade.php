@@ -2,7 +2,7 @@
 @section('judul_halaman', 'Add Jurusan Mahasiswa')
 
 @section('konten')
-    <form action="{{route('save.roles')}}" method="POST">
+    <form action="{{route('save.user')}}" method="POST">
         @csrf
         <div class="form-group">
             <label for="">

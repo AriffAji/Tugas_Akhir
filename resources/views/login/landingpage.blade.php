@@ -45,6 +45,7 @@ https://templatemo.com/tm-537-art-factory
               <!-- ***** Menu Start ***** -->
               <ul class="nav">
                 <li class="scroll-to-section"><a href="/login">Login</a></li>
+                <li class="scroll-to-section"><a href="/register">Register</a></li>
               </ul>
               <a class="menu-trigger">
                 <span>Menu</span>
@@ -67,7 +68,8 @@ https://templatemo.com/tm-537-art-factory
                 <h4 style="color:white">Selamat Datang di </h4>
                 <h2 style="color: white">Aplikasi Monitoring Kegiatan Kompetisi <strong>Politeknik Negeri Banyuwangi</strong></h2>
                 <p> </p>
-              <a href="/login" class="main-button-slider">Find Out More</a>
+              <a href="/login" class="main-button-slider">Login</a>
+              <a href="/register" class="main-button-slider">register</a>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
               <img src="assets/images/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic" />

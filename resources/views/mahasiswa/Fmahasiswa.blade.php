@@ -5,7 +5,6 @@
 @section('konten')
 
 <div>
-    
             <div class="col">
                 <form class="card" id="formA" action="{{ route ('mahasiswa.addform') }}" enctype="multipart/form-data" method="POST">
                     @csrf
@@ -28,22 +27,15 @@
                                 <div class="col-12 " style="margin-bottom: 12px">
                                     <label for="">Nama Ketua</label>
                                      <input type="text" maxlength="100" name="nama_ketua" readonly class="form-control" value="{{ auth()->user()->username }}">
-                                   {{-- <select class="form-control selectric" name="nama_ketua" >
-                                        <option> </option>
-                                        @foreach ($mahasiswa as $ketua)
-                                        <option value="{{$ketua->ID}}">{{$ketua->nama}}</option>
-                                        @endforeach
-                                    </select> --}}
                                 </div>
                                 <div class="col-12 " style="margin-bottom: 12px">
                                     <label for="">Dosen Pembimbing</label>
-                                     <input type="text" maxlength="100" name="dosen_pembimbing" class="form-control" placeholder="Masukkan Nama Anggota 1 . . . ." value="{{ old('dosen_pembimbing') }}">
-                                   {{-- <select class="form-control selectric" name="dosen_pembimbing" >
+                                    <select class="form-control selectric" name="dosen_pembimbing" >
                                         <option> </option>
                                         @foreach ($dosen as $dosbim)
-                                        <option value="{{$dosbim->ID}}">{{$dosbim->dosen_pembimbing}}</option>
+                                        <option value="{{$dosbim->id}}">{{$dosbim->username}}</option>
                                         @endforeach
-                                    </select> --}}
+                                    </select>
                                 </div>
                                <div class="col-12 " style="margin-bottom: 12px">
                                     <label for="">Nama Kelompok</label>
@@ -53,12 +45,6 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                    {{-- <select class="form-control selectric" name="anggota1" >
-                                        <option> </option>
-                                        @foreach ($group as $namagroup)
-                                        <option value="{{$namagroup->ID}}">{{$namagroup->nama_kelompok}}</option>
-                                        @endforeach
-                                    </select> --}}
                                     <sub>Note : Kelompok Harus Unik</sub>
                                 </div>
                                 <div class="col-12 " style="margin-bottom: 12px">
@@ -83,34 +69,31 @@
                                 
                                 <div class="col-12 " style="margin-bottom: 12px">
                                     <label for="">Nama Anggota 1</label>
-                                    <input type="text" maxlength="12" name="anggota1" class="form-control" placeholder="Masukkan Nama Anggota 1 . . . ." value="{{ old('anggota1') }}">
-                                    {{-- <select class="form-control selectric" name="anggota1" >
+                                    <select class="form-control selectric" name="anggota1" >
                                         <option> </option>
-                                        @foreach ($mahasiswa as $item1)
-                                        <option value="{{$item1->ID}}">{{$item1->nama}}</option>
+                                        @foreach ($mhs as $item1)
+                                        <option value="{{$item1->id}}">{{$item1->username}}</option>
                                         @endforeach
-                                    </select> --}}
+                                    </select>
                                 </div>
-                                
                                 <div class="col-12 " style="margin-bottom: 12px">
                                     <label for="">Nama Anggota 2</label>
-                                     <input type="text" maxlength="12" name="anggota2" class="form-control" placeholder="Masukkan Nama Anggota 1 . . . ." value="{{ old('anggota2') }}">
-                                   {{-- <select class="form-control selectric" name="anggota2" >
+                                    <select class="form-control selectric" name="anggota2" >
                                         <option> </option>
-                                        @foreach ($mahasiswa as $item2)
-                                        <option value="{{$item2->ID}}">{{$item2->nama}}</option>
-                                        @endforeach --}}
+                                        @foreach ($mhs as $item1)
+                                        <option value="{{$item1->id}}">{{$item1->username}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 
                                 <div class="col-12 " style="margin-bottom: 12px">
                                     <label for="">Nama Anggota 3</label>
-                                     <input type="text" maxlength="12" name="anggota3" class="form-control" placeholder="Masukkan Nama Anggota 1 . . . ." value="{{ old('anggota3') }}">
-                                    {{-- <select class="form-control selectric" name="anggota3" >
+                                    <select class="form-control selectric" name="anggota3" >
                                         <option> </option>
-                                        @foreach ($mahasiswa as $item3)
-                                        <option value="{{$item3->ID}}">{{$item3->nama}}</option>
-                                        @endforeach --}}
+                                        @foreach ($mhs as $item1)
+                                        <option value="{{$item1->id}}">{{$item1->username}}</option>
+                                        @endforeach
+                                    </select>
                                     </select>
                                 </div>
                                 <div class="col-12 " style="margin-bottom: 12px">
@@ -132,6 +115,9 @@
                                     @enderror
                                     <sub>Note : Penamaan File(NamaKompetisi_NamaKelompok_NamaKetuaKelompok.pdf)</sub>
                                 </div>
+                                <div class="col-12 " style="margin-bottom: 12px" >
+                                    <input type="hidden"  name="user_id" value="{{ auth()->user()->id}}" >
+                                </div>
                                 
                             </div>
                         </div>
@@ -145,10 +131,7 @@
                     </div>
                 </form>
                   <h4><a href="{{route('mahasiswa.detail')}}" class="btn btn-primary btn-lg btn-block" tabindex="4">Upload Sertifikat</a></h4>
-            </div>
-   
-
-    
+            </div> 
 </div>
 
 

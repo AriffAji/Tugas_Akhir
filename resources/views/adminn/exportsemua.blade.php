@@ -24,10 +24,8 @@
                 <th>Nama Ketua</th>
                 <th>Nama Kelompok</th>
                 <th>Dosen Pembimbing</th>
-                <th>Anggota 1</th>
-                <th>Anggota 2</th>
-                <th>Anggota 3</th>
                 <th>Tingkatan</th>
+                <th>Status</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -39,10 +37,8 @@
                                 <td class="text-center">{{$nm->nama_ketua}}</td>
                                 <td class="text-center">{{$nm->dosen_pembimbing}}</td>
                                 <td class="text-center">{{$nm->nama_kelompok}}</td>
-                                <td class="text-center">{{$nm->anggota1}}</td>
-                                <td class="text-center">{{$nm->anggota2}}</td>
-                                <td class="text-center">{{$nm->anggota3}}</td>
                                 <td class="text-center">{{$nm->tingkatan}}</td>
+                                <td class="text-center">{{$nm->status}}</td>
                             </tr>
                             <?php $number++;?>  
                             @endforeach

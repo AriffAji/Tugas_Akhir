@@ -32,11 +32,12 @@ class TsekdirController extends Controller
       
         DB::table('tkompetisi')->where("ID",$ID)->update([
             'proposal'=>$request->proposal->getClientOriginalName(),
+            'isSekdirAcc'=>$request->isSekdirAcc,
         ]);
         if($request->oldProposal){
             Storage::delete($request->oldProposal);
         };
-        return redirect()->route('sekdir.dashboard')->with('message','Data Berhasil diupdate');
+        return redirect()->route('sekdir.persetujuan')->with('success','Data Berhasil Disetujui');
     }
 
     public function upload(){

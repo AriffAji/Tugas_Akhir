@@ -8,7 +8,7 @@
     <div class="col-12" >
         <div class="card">
             <div class="card-header">
-                <h4><a href="" class="btn btn-icon icon-left btn-primary"> Export PDF</a></h4>
+                {{-- <h4><a href="" class="btn btn-icon icon-left btn-primary"> Export PDF</a></h4> --}}
             </div>
             <div class="card-body">
                 <table class="table table-bordered" id="table_list">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class TmahasiswaController extends Controller
@@ -15,11 +16,10 @@ class TmahasiswaController extends Controller
 
     // form masukkan data
     public function index(){
-        $group = DB::table('tgroup')->get();
-        $dosen = DB::table('tdosen')->get();
+        $dosen = DB::table('users')->where('role_id', 3)->get();
+        $mhs = DB::table('users')->where('role_id', 1)->get();
         $kompetisi = DB::table('tkompetisi')->get();
-        $mahasiswa = DB::table('tmahasiswa')->get();
-        return view('mahasiswa.Fmahasiswa', compact('mahasiswa','kompetisi', 'group', 'dosen'));
+        return view('mahasiswa.Fmahasiswa', compact('mhs', 'dosen'));
         
     }
 
@@ -45,18 +45,19 @@ class TmahasiswaController extends Controller
             'anggota2'=>$request->anggota2,
             'anggota3'=>$request->anggota3,
             'pendanaan'=>$request->pendanaan,
+            'user_id'=>$request->user_id,
             'proposal'=>$request->proposal->getClientOriginalName(),
         
         ]);
         // $validateData = Auth()->user()->id;
-        return redirect()->route('mahasiswa.detail')->with('message','Data berhasil ditambahkan');
+        return redirect()->route('mahasiswa.detail')->with('success','Pendaftaran Kompetisi Sukses');
     }
 
     // form masukkan data
     public function detaildata(Request $request){
-        $review = DB::table('vreview')->get();
-        
-        return view('mahasiswa.detailmhs', ['review'=>$review]);
+        $review = DB::table('vreview')->where('user_id', Auth::user()->id)->get();
+
+        return view('mahasiswa.detailmhs', compact('review'));
     }
     
     public function edit(Request $request ,$ID){
@@ -80,7 +81,9 @@ class TmahasiswaController extends Controller
             'status'=>$request->status,
             'prestasi'=>$request->prestasi,
             'penyerapan_dana'=>$request->penyerapan_dana,
+            'user_id'=>$request->user_id,
             'sertifikat'=>$request->sertifikat->getClientOriginalName(),
+
         ]);
         return redirect()->route('mahasiswa.detail')->with('message','Data Berhasil diupdate');
     }
@@ -95,8 +98,12 @@ class TmahasiswaController extends Controller
     // menampilkan data review
 
     public function riwayat(){
-     
-        return view('mahasiswa.riwayat');
+        $riwayat = DB::table('vriwayat')->where('user_id', Auth::user()->id)->get();
+        $anggota1 = DB::table('vanggota1')->where('user_id', Auth::user()->id)->first();
+        $anggota2 = DB::table('vanggota2')->where('user_id', Auth::user()->id)->first();
+        $anggota3 = DB::table('vanggota3')->where('user_id', Auth::user()->id)->first();
+        // return view('mahasiswa.riwayat', compact('riwayat'));
+        return view('mahasiswa.riwayat', compact('riwayat','anggota1','anggota2','anggota3'));
     }
     
     public function _validation(Request $request){

@@ -7,7 +7,15 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                Head
+               @if (session()->has('success'))
+                        <div class="alert alert-success alert-dismissible fade show" style="border-radius:10px" role="alert">
+                          {{ session()->get('success') }}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                @endif
+              <br>
               </div>
             <div class="card-body">               
                 <div class="table-responsive">
@@ -34,8 +42,8 @@
                                 <td class="text-center">{{$nm->nama_ketua}}</td>
                                 <td class="text-center">{{$nm->dosen_pembimbing}}</td>
                                 <td class="text-center">{{$nm->nama_kelompok}}</td>
-                                <td class="text-center">{{$nm->proposal}}</td>
-                                <td class="text-center">{{"Rp. " . number_format($nm->pendanaan, 0, '.',',')}}</td>
+                                <td class="text-center"><a href="{{ asset ('/storage/proposal/'. $nm->proposal)}}" target="_blank">{{$nm->proposal}} </td>
+                                <td class="text-center">{{$nm->pendanaan}}</td>
                                 <td class="text-center text-nonwrap">
                                     <a href="{{route('dosen.hapus', $nm->ID)}}"  class="btn btn-danger btn-action mr-1" method="POST" onclick="return confirm('Yakin?');"> 
                                         @csrf

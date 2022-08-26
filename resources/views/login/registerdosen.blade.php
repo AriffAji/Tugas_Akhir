@@ -46,7 +46,7 @@
             </div>
 
             <div class="card card-primary" style="border-radius:10px">
-              <div class="card-header d-block text-center"><h4>Hello Mahasiswa!</h4></div>
+              <div class="card-header d-block text-center"><h4>Hello Dosen!</h4></div>
               <div class="card-header d-block text-center"><h4>Register</h4></div>
               <div class="card-body">
                 <form action="/register" method="post">
@@ -66,7 +66,7 @@
                   <div class="shadow p-3 mb-5 bg-body " style="border-radius:5px">
                     <div class="col-lg-12">
                         <div class="form-group ">
-                            <label for="nim">NIM</label>
+                            <label for="nim">NIP/NIPPK</label>
                             <input id="nim" type="number" class="form-control @error('nim') is-invalid @enderror " name="nim" placeholder="361955401112" value="{{ old('nim') }}" required>
                               @error('nim')
                                   <div class="invalid-feedback">
@@ -95,52 +95,8 @@
                             <input type="checkbox" onclick="tampilkanPassword()"> Tampilkan Password
                         </div>
                     </div>
-                    {{-- <div class="row">
-                          <div class="col-lg-4 col-lg-6 ">
-                                 <div class="form-group ">
-                                 <label for="password">Foto</label>
-                                <div class="col-sm-12 col-md-7 ">
-                                    <div id="image-preview" class="image-preview">
-                                      <label for="foto" id="foto">Choose File</label>
-                                      <input type="file" name="foto" id="foto" autofocus>
-                                  </div>
-                                </div>
-                          </div>
-                       </div>
-                    </div> --}}
                   </div>
                   <br>
-
-                  {{-- <div class="shadow p-3 mb-5 bg-body " style="border-radius:5px">
-                    <div class="form-group ">
-                      <label>Keanggotaan </label>
-                      <select class="form-control selectric">
-                        <option> </option>
-                        <option>Ketua Kelompok</option>
-                        <option>Anggota</option>
-                      </select>
-                       <div class="">
-                            <div class="selectgroup w-100">
-                              <label class="selectgroup-item">
-                                <input type="radio" name="value" value="developer" class="selectgroup-input">
-                                <span class="selectgroup-button">Ketua Kelompok</span>
-                              </label>
-                              <label class="selectgroup-item">
-                                <input type="radio" name="value" value="ceo" class="selectgroup-input">
-                                <span class="selectgroup-button">Anggota Kelompok</span>
-                              </label>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="form-group ">
-                            <label for="tim">Nama Tim</label>
-                            <input id="tim" type="text" class="form-control" name="tim" autofocus>
-                    </div>
-                    <div class="form-group ">
-                            <label for="prodi">Program Studi</label>
-                            <input id="prodi" type="text" class="form-control" name="prodi" autofocus>
-                    </div>
-                  </div> --}}
 
                   <div class="form-group ">
                     <button type="submit" class="btn btn-primary btn-lg btn-block">

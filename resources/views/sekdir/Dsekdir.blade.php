@@ -4,17 +4,41 @@
 
 @section('konten')
 
-<div>
-    <center>
-        <h1>Selamat Datang</h1>
-        <h3>Ada yang Menanti Persetujuan Bapak!</h3>
-    </center>
-     <div class="form-group">
-                    <button  type="button" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                     <a href="/login" style="color: white">Ikuti</a>
-                    </button>
-    </div>
-</div>
+  <div class="col">
+                @if (session()->has('success'))
+                        <div class="alert alert-success alert-dismissible fade show" style="border-radius:10px" role="alert">
+                          {{ session()->get('success') }}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                @endif
+                <form class="card" id="formA">
+                    <div class="card-header justify-content-center"  >
+                    <center>
+                        <h2>Selamat Datang,  {{ auth()->user()->username }}</h2>
+                        <h3>Ada yang Menanti Persetujuan Bapak/Ibu!</h3>
+                    </center>
+                    </div>
+                    <div class="row justify-content-center">
+                       <div>
+                        <div class="login-brand">
+                          <h4>Aplikasi Monitoring Kegiatan Kompetisi Mahasiswa</h4>
+                          <br>
+                          <br>
+                          <img src="/assets/img/logo.png" alt="" style="height:200px" alt="logo" >
+                        </div>
+                      </div>
+                    </div>
+                   <div class="row ">
+                      <div class="col-12">
+                         <a href="{{route('sekdir.persetujuan')}}" class="btn btn-success btn-action col-12 ">Menyetujui</i></a>    
+                      </div>
+                    </div>
+                   </div>
+                </form>
+        
+            </div>
 
 
 

@@ -244,9 +244,14 @@
                                 <div class="row col-12">
                                 <div class=" col-12" style="margin-bottom: 12px">
                                     <label for="">Re-upload Proposal</label>
-                                    <input type="file" maxlength="12" name="proposal" class="form-control" placeholder="Masukkan Nama Kompetisi . . . .">
+                                    <input type="file" maxlength="12" name="proposal" class="form-control  @error('proposal') is-invalid @enderror" required placeholder="Masukkan Nama Kompetisi . . . .">
+                                     @error('proposal')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
-                               
+                               <input type="hidden" maxlength="12" name="isDosenAcc" class="form-control" value="1">
                             
                             </div>
                         </div>

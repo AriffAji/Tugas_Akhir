@@ -19,7 +19,7 @@
                                 {{-- <input type="hidden" name="id" class="form-control"> --}}
                                 <div class="col-12 " style="margin-bottom: 12px">
                                     <label for="">Upload Proposal </label>
-                                    <input type="file"  name="prestasi" class="form-control" placeholder="Masukkan Dana yang telah terserap anda...">
+                                    <input type="file"  name="proposal" class="form-control  @error('nama_kompetisi') is-invalid @enderror" placeholder="Masukkan Dana yang telah terserap anda...">
                                 </div>
                               
                                 

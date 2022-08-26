@@ -3,27 +3,25 @@
 @section('judul_halaman', 'Dashboard Dosen')
 
 @section('konten')
-
-<div>
-    <center>
-        <h2>Selamat Datang,  {{ auth()->user()->username }}</h2>
-        <h3>Ada yang Menanti Persetujuan Bapak!</h3>
-    </center>
-      <div class="row">
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
+  <div class="col">
+                <form class="card" id="formA">
+                    <div class="card-header justify-content-center"  >
+                    <center>
+                        <h2>Selamat Datang,  {{ auth()->user()->username }}</h2>
+                        <h3>Ada yang Menanti Persetujuan Bapak!</h3>
+                    </center>
                     </div>
-     <div class="form-group">
-                    <div class="row ">
+                    <div class="row justify-content-center">
+                       <div>
+                        <div class="login-brand">
+                          <h4>Aplikasi Monitoring Kegiatan Kompetisi Mahasiswa</h4>
+                          <br>
+                          <br>
+                          <img src="/assets/img/logo.png" alt="" style="height:200px" alt="logo" >
+                        </div>
+                      </div>
+                    </div>
+                   <div class="row ">
                       <div class="col-6">
                          <a href="{{route('dosen.detail')}}" class="btn btn-success btn-action col-12 ">Menyetujui</i></a>    
                       </div>
@@ -31,8 +29,12 @@
                        <a href="{{route('dosen.detail2')}}" class="btn btn-danger btn-action col-12 ">Pembatalan</i></a>  
                       </div>
                     </div>
-    </div>
-</div>
+                   </div>
+                </form>
+        
+            </div>
+   
+
 
 
 

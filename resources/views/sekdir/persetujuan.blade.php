@@ -7,7 +7,15 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-               Head
+               @if (session()->has('success'))
+                        <div class="alert alert-success alert-dismissible fade show" style="border-radius:10px" role="alert">
+                          {{ session()->get('success') }}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                @endif
+              <br>
               </div>
             <div class="card-body">               
                 <div class="table-responsive">

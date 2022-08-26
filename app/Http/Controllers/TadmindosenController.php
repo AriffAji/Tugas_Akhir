@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class TadmindosenController extends Controller
 {
+    // untuk data semua yang mengikuti kompetisi
      public function index(){   
         return view('adminn.datasemua');
     }
@@ -16,9 +17,6 @@ class TadmindosenController extends Controller
             'nama_kompetisi',
             'nama_ketua',
             'dosen_pembimbing',
-            'anggota1',
-            'anggota2',
-            'anggota3',
             'tingkatan',
             'pendanaan',
             'proposal',

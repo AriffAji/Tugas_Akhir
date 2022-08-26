@@ -1,6 +1,6 @@
 @extends('layouts.indexmaster') 
 {{-- untuk memanggil sebuah extend dari file lain dapat menggunakan '/' atau '.' --}}
-@section('judul_halaman', 'Form Mengikuti Lomba')
+@section('judul_halaman', 'Form Upload Sertifikat Lomba')
 
 @section('konten')
 
