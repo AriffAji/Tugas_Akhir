@@ -8,45 +8,64 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    {{-- <h4><a href="" class="btn btn-icon icon-left btn-primary"> Export PDF</a></h4> --}}
+
+                    @if (session()->has('success'))
+                        <div class="alert alert-success alert-dismissible fade show" style="border-radius:10px" role="alert">
+                            {{ session()->get('success') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
+                    @if (session()->has('loginError'))
+                        <div class="alert alert-danger alert-dismissible fade show" style="border-radius:10px"
+                            role="alert">
+                            {{ session()->get('loginError') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered" id="table_list">
-                        <thead>
-                            <tr>
-                                <th class="text-center">NO</th>
-                                <th class="text-center">Nama Kompetisi</th>
-                                <th class="text-center">Nama Ketua</th>
-                                <th class="text-center">Dosen Pembimbing</th>
-                                <th class="text-center">Nama Kelompok</>
-                                <th class="text-center">Status</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <?php $number = 1; ?>
-                            @foreach ($sedangkompetisi as $nm)
+                    <div class="table-responsive">
+                        <table class="table table table-hover" id="table-1">
+                            <thead>
                                 <tr>
-                                    <td>{{ $number }}</td>
-                                    <td class="text-center">{{ $nm->nama_kompetisi }}</td>
-                                    <td class="text-center">{{ $nm->nama_ketua }}</td>
-                                    <td class="text-center">{{ $nm->dosen_pembimbing }}</td>
-                                    <td class="text-center">{{ $nm->nama_kelompok }}</td>
-                                    <td class="text-center">{{ $nm->status }}</td>
-                                </tr>
-                                <?php $number++; ?>
-                            @endforeach
+                                    <th class="text-center">NO</th>
+                                    <th class="text-center">Nama Kompetisi</th>
+                                    <th class="text-center">Nama Ketua</th>
+                                    <th class="text-center">Dosen Pembimbing</th>
+                                    <th class="text-center">Nama Kelompok</th>
+                                    <th class="text-center">Program Studi</th>
+                                    <th class="text-center">Status</th>
 
-                        </tbody>
-                    </table>
-                </div>
-                <div class="card-footer">
-                    Footer
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <?php $number = 1; ?>
+                                @foreach ($sedangkompetisi as $nm)
+                                    <tr>
+                                        <td>{{ $number }}</td>
+                                        <td class="text-center">{{ $nm->nama_kompetisi }}</td>
+                                        <td class="text-center">{{ $nm->nama_ketua }}</td>
+                                        <td class="text-center">{{ $nm->dosen_pembimbing }}</td>
+                                        <td class="text-center">{{ $nm->nama_kelompok }}</td>
+                                        <td class="text-center">{{ $nm->prodi }}</td>
+                                        <td class="text-center">{{ $nm->status }}</td>
+                                    </tr>
+                                    <?php $number++; ?>
+                                @endforeach
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 
 
 

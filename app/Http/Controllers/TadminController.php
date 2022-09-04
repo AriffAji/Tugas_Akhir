@@ -48,8 +48,6 @@ class TadminController extends Controller
         $all = DB::table('vall')->get();
         return view('adminn.datasemua', ['semua' => $all]);
     }
-
-
     // Data untuk mengeikuti semua Kompetisi
 
     // export PDF
