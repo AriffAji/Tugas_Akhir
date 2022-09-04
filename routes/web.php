@@ -31,6 +31,8 @@ Route::get('/', function () {
 });
 Route::get('/register', [TregisterController::class, 'index'])->name('login.register')->middleware('guest');
 Route::post('/register', [TregisterController::class, 'create']);
+Route::get('/registerdosen', [registerDosenController::class, 'index'])->name('dosen.register')->middleware('guest');
+Route::post('/registerdosen', [registerDosenController::class, 'create']);
 Route::get('/login', [TloginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [TloginController::class, 'authenticate']);
 Route::post('/logout', [TloginController::class, 'logout'])->name('logout.register');

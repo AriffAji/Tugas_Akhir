@@ -5,12 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 
-
-class TregisterController extends Controller
+class registerDosenController extends Controller
 {
     public function index()
     {
-        return view('login.register');
+        return view('login.registerdosen');
     }
 
     public function create(Request $request)
@@ -23,7 +22,7 @@ class TregisterController extends Controller
             'role_id' => ''
         ]);
         $validatedData['password'] = bcrypt($validatedData['password']);
-        $validatedData['role_id'] = 1;
+        $validatedData['role_id'] = 3;
         User::create($validatedData);
 
         return redirect('/login')->with('success', 'Berhasil mendaftar!! Silahkan Login');

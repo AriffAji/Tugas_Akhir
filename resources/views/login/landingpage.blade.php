@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -20,64 +21,69 @@ https://templatemo.com/tm-537-art-factory
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/templatemo-art-factory.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/owl-carousel.css" />
-  </head>
+</head>
 
-  <body>
+<body>
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
-      <div class="jumper">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
     <!-- ***** Preloader End ***** -->
 
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <nav class="main-nav">
-              <!-- ***** Logo Start ***** -->
-              <a href="#" class="logo">Politeknik Negeri Banyuwangi</a>
-              <!-- ***** Logo End ***** -->
-              <!-- ***** Menu Start ***** -->
-              <ul class="nav">
-                <li class="scroll-to-section"><a href="/login">Login</a></li>
-                <li class="scroll-to-section"><a href="/register">Register</a></li>
-              </ul>
-              <a class="menu-trigger">
-                <span>Menu</span>
-              </a>
-              <!-- ***** Menu End ***** -->
-            </nav>
-          </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="#" class="logo">Politeknik Negeri Banyuwangi</a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="/login">Login</a></li>
+                            <li class="scroll-to-section"><a href="/register">Register Mahasiswa</a></li>
+                            <li class="scroll-to-section"><a href="/registerdosen">Register Dosen</a></li>
+                        </ul>
+                        <a class="menu-trigger">
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
         </div>
-      </div>
     </header>
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Welcome Area Start ***** -->
     <div class="welcome-area" id="welcome">
-      <!-- ***** Header Text Start ***** -->
-      <div class="header-text">
-        <div class="container">
-          <div class="row">
-            <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                <h4 style="color:white">Selamat Datang di </h4>
-                <h2 style="color: white">Aplikasi Monitoring Kegiatan Kompetisi <strong>Politeknik Negeri Banyuwangi</strong></h2>
-                <p> </p>
-              <a href="/login" class="main-button-slider">Login</a>
-              <a href="/register" class="main-button-slider">register</a>
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12"
+                        data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h4 style="color:white">Selamat Datang di </h4>
+                        <h2 style="color: white">Aplikasi Monitoring Kegiatan Kompetisi <strong>Politeknik Negeri
+                                Banyuwangi</strong></h2>
+                        <p> </p>
+                        <a href="/login" class="main-button-slider">Login</a>
+                        <a href="/register" class="main-button-slider">register</a>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"
+                        data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                        <img src="assets/images/slider-icon.png" class="rounded img-fluid d-block mx-auto"
+                            alt="First Vector Graphic" />
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-              <img src="assets/images/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic" />
-            </div>
-          </div>
         </div>
-      </div>
-      <!-- ***** Header Text End ***** -->
+        <!-- ***** Header Text End ***** -->
     </div>
     <!-- ***** Welcome Area End ***** -->
 
@@ -98,5 +104,6 @@ https://templatemo.com/tm-537-art-factory
 
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
-  </body>
+</body>
+
 </html>
