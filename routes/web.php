@@ -42,12 +42,9 @@ Route::post('/logout', [TloginController::class, 'logout'])->name('logout.regist
 Route::get('/dashboardA', [TadminController::class, 'index'])->name('admin.Dadmin')->middleware('admin');
 Route::get('/exportsemua', [TadminController::class, 'exportsemua'])->name('exportsemua')->middleware('admin');
 Route::get('/vall', [TadminController::class, 'vall'])->name('vall')->middleware('admin');
-Route::get('/datasedangmengikuti', [TadminmhsController::class, 'index'])->name('admin.datamhs')->middleware('admin');
-Route::post('/data_mahasiswa', [TadminmhsController::class, 'mahasiswa'])->name('admin.datamhs')->middleware('admin');
-Route::get('/dataselesailomba', [TadminmhsController::class, 'sudah'])->name('admin.sudah')->middleware('admin');
-Route::post('/data_selesai', [TadminmhsController::class, 'sudahselesai'])->name('admin.sudahselesai')->middleware('admin');
-Route::get('/datasemua', [TadmindosenController::class, 'index'])->name('admin.datadsn')->middleware('admin');
-Route::post('/data_semua', [TadmindosenController::class, 'dosen'])->name('admin.datadsn')->middleware('admin');
+Route::get('/datasedangmengikuti', [TadminController::class, 'sedangkompetisi'])->name('admin.datamhs')->middleware('admin');
+Route::get('/dataselesailomba', [TadminController::class, 'selesailomba'])->name('admin.sudah')->middleware('admin');
+Route::get('/datasemua', [TadminController::class, 'index4'])->name('admin.datadsn')->middleware('admin');
 // admin
 
 

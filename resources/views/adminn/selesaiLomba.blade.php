@@ -14,17 +14,36 @@
                     <table class="table table-bordered" id="table_list">
                         <thead>
                             <tr>
-                                <th>NO</th>
-                                <th>Nama Kompetisi</th>
-                                <th>Nama Ketua</th>
-                                <th>Dosen Pembimbing</th>
-                                <th>Nama Kelompok</th>
-                                <th>Proposal</th>
-                                <th>Sertifikat</th>
-                                <th>Status</th>
+                                <th class="text-center">NO</th>
+                                <th class="text-center">Nama Kompetisi</th>
+                                <th class="text-center">Nama Ketua</th>
+                                <th class="text-center">Dosen Pembimbing</th>
+                                <th class="text-center">Nama Kelompok</th>
+                                <th class="text-center">Proposal</th>
+                                <th class="text-center">Prestasi</th>
+                                <th class="text-center">Sertifikat</th>
+                                <th class="text-center">Status</th>
 
                             </tr>
                         </thead>
+                        <tbody>
+                            <?php $number = 1; ?>
+                            @foreach ($selesailomba as $nm)
+                                <tr>
+                                    <td>{{ $number }}</td>
+                                    <td class="text-center">{{ $nm->nama_kompetisi }}</td>
+                                    <td class="text-center">{{ $nm->nama_ketua }}</td>
+                                    <td class="text-center">{{ $nm->dosen_pembimbing }}</td>
+                                    <td class="text-center">{{ $nm->nama_kelompok }}</td>
+                                    <td class="text-center">{{ $nm->proposal }}</td>
+                                    <td class="text-center">{{ $nm->prestasi }}</td>
+                                    <td class="text-center">{{ $nm->sertifikat }}</td>
+                                    <td class="text-center">{{ $nm->status }}</td>
+                                </tr>
+                                <?php $number++; ?>
+                            @endforeach
+
+                        </tbody>
                     </table>
                 </div>
                 <div class="card-footer">
@@ -56,89 +75,4 @@
 @endpush
 
 @push('page-script')
-    <script type="application/javascript">
-let data=[]
-
-const table= $("#table_list").DataTable({
-    "responsive":true,
-    "autowidth":true,
-    "pageLength":5,
-    "lengthMenu":[[3,5,10,15,20,1000],[3,5,10,15,20,"ALL"]],
-    "order":[[0,"asc"]],
-    "bServerSide":true,
-    "bLengthChange":true,
-    "bFilter":true,
-    "bInfo":true,
-    "processing":true,
-
-    "ajax":{
-        url:"{{ url('data_selesai') }}",
-        type:"post",
-        data:function(d){
-            d._token = "{{ csrf_token() }}"
-            d.areaaa = $("#area_filter").val()
-        }
-    },
-    columns:[
-        {
-            "class":"",
-            "sortable":true,
-            "render":function(data,type,row,meta){
-                return row.ID
-            //    return `<span onclick="ambilsatudata(${row.ID})" >${row.ID}</span>`
-            }
-        },
-        {
-            "class":"",
-            "sortable":true,
-            "render":function(data,type,row,meta){
-                return row.nama_kompetisi
-            }
-        },
-        {
-            "class":"",
-            "sortable":true,
-            "render":function(data,type,row,meta){
-                return row.nama_ketua
-            }
-        },
-        {
-            "class":"",
-            "sortable":true,
-            "render":function(data,type,row,meta){
-                return row.dosen_pembimbing
-            }
-        },
-        {
-            "class":"",
-            "sortable":true,
-            "render":function(data,type,row,meta){
-                return row.nama_kelompok
-            }
-        },
-        {
-            "class":"",
-            "sortable":true,
-            "render":function(data,type,row,meta){
-                return row.proposal
-            }
-        },
-        {
-            "class":"",
-            "sortable":true,
-            "render":function(data,type,row,meta){
-                return row.sertifikat
-            }
-        },
-        {
-            "class":"",
-            "sortable":true,
-            "render":function(data,type,row,meta){
-                return row.status
-            }
-        },
-    ]
-})
-
-</script>
 @endpush
