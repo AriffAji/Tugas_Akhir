@@ -44,7 +44,8 @@ Route::get('/exportsemua', [TadminController::class, 'exportsemua'])->name('expo
 Route::get('/vall', [TadminController::class, 'vall'])->name('vall')->middleware('admin');
 Route::get('/datasedangmengikuti', [TadminController::class, 'sedangkompetisi'])->name('admin.datamhs')->middleware('admin');
 Route::get('/dataselesailomba', [TadminController::class, 'selesailomba'])->name('admin.sudah')->middleware('admin');
-Route::get('/datasemua', [TadminController::class, 'index4'])->name('admin.datadsn')->middleware('admin');
+Route::get('/datasemua', [TadminController::class, 'all'])->name('admin.datadsn')->middleware('admin');
+Route::get('/datadibatalkan', [TadminController::class, 'dibatalkan'])->name('admin.datadibatalkan')->middleware('admin');
 // admin
 
 

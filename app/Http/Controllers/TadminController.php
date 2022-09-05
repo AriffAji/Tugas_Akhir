@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\tkompetisi;
+use App\Models\Tkompetisi2;
 use App\Models\tmahasiswa;
 use App\Models\User;
 use App\Models\vall;
@@ -21,8 +22,10 @@ class TadminController extends Controller
         $tidakjuara = tkompetisi::where('prestasi', 'Peserta')->count();
         $sedangmengikuti = vsedangkompetisi::where('status', 'Sedang Mengikuti Lomba')->count();
         $sudahselesai = vsudahselesai::where('status', 'Sudah Selesai')->count();
+        $dibatalkan = Tkompetisi2::where('status', '1')->count();
+        $semua = vall::count();
 
-        return view('adminn.Dadmin', compact('juara', 'tidakjuara', 'sedangmengikuti', 'sudahselesai'));
+        return view('adminn.Dadmin', compact('juara', 'tidakjuara', 'sedangmengikuti', 'sudahselesai', 'dibatalkan', 'semua'));
     }
     // Dashboard Admin
 
@@ -42,8 +45,16 @@ class TadminController extends Controller
     }
     // Data selesai Lomba
 
+    // Data selesai Lomba
+    public function dibatalkan()
+    {
+        $dibatalkan = DB::table('vdibatalkan')->get();
+        return view('adminn.dibatalkan', ['dibatalkan' => $dibatalkan]);
+    }
+    // Data selesai Lomba
+
     // Data untuk mengeikuti semua Kompetisi
-    public function index4()
+    public function all()
     {
         $all = DB::table('vall')->get();
         return view('adminn.datasemua', ['semua' => $all]);
@@ -54,7 +65,7 @@ class TadminController extends Controller
     public function vall(Request $request)
     {
         $review = DB::table('vall')->get();
-        return view('adminn.hiddenall', ['review' => $review]);
+        return view('adminn.export.hiddenall', ['review' => $review]);
     }
 
     public function exportsemua()
@@ -62,7 +73,7 @@ class TadminController extends Controller
         $data = vall::all();
         view()->share('review', $data);
 
-        $pdf = PDF::loadview('adminn.exportsemua');
+        $pdf = PDF::loadview('adminn.export.exportsemua');
         return $pdf->download('datakompetisi.pdf');
     }
     // export PDF
