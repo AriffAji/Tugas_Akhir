@@ -33,7 +33,8 @@
                             </div>
                             <div class="col-12 " style="margin-bottom: 12px">
                                 <label for="">Dosen Pembimbing</label>
-                                <select class="form-control selectric" name="dosen_pembimbing">
+                                <select class="form-control selectric js-example-basic-single"
+                                    data-placeholder="Pilih Dosen Pembimbing" name="dosen_pembimbing">
                                     <option> </option>
                                     @foreach ($dosen as $dosbim)
                                         <option value="{{ $dosbim->id }}">{{ $dosbim->username }}</option>
@@ -56,7 +57,7 @@
                             <div class="col-12 " style="margin-bottom: 12px">
                                 <label for="">Tingkat Lomba</label>
                                 <select class="form-control selectric" name="tingkatan">
-                                    <option> </option>
+                                    <option></option>
                                     <option>Kabupaten</option>
                                     <option>Provinsi</option>
                                     <option>Nasional</option>
@@ -76,16 +77,19 @@
 
                             <div class="col-12 " style="margin-bottom: 12px">
                                 <label for="">Nama Anggota 1</label>
-                                <select class="form-control selectric" name="anggota1">
+                                <select class="form-control selectric js-example-basic-single"
+                                    data-placeholder="Pilih Anggota Ke-1" name="anggota1">
                                     <option> </option>
                                     @foreach ($mhs as $item1)
                                         <option value="{{ $item1->id }}">{{ $item1->username }}</option>
                                     @endforeach
                                 </select>
+                                <sub>Note : Jika Pribadi Isikan Anggota dengan Nama Anda</sub>
                             </div>
                             <div class="col-12 " style="margin-bottom: 12px">
                                 <label for="">Nama Anggota 2</label>
-                                <select class="form-control selectric" name="anggota2">
+                                <select class="form-control selectric js-example-basic-single"
+                                    data-placeholder="Pilih Anggota Ke-2" name="anggota2">
                                     <option> </option>
                                     @foreach ($mhs as $item1)
                                         <option value="{{ $item1->id }}">{{ $item1->username }}</option>
@@ -95,17 +99,18 @@
 
                             <div class="col-12 " style="margin-bottom: 12px">
                                 <label for="">Nama Anggota 3</label>
-                                <select class="form-control selectric" name="anggota3">
+                                <select class="form-control selectric js-example-basic-single"
+                                    data-placeholder="Pilih Anggota Ke-3" name="anggota3">
                                     <option> </option>
                                     @foreach ($mhs as $item1)
                                         <option value="{{ $item1->id }}">{{ $item1->username }}</option>
                                     @endforeach
                                 </select>
-                                </select>
                             </div>
                             <div class="col-12 " style="margin-bottom: 12px">
                                 <label for="">Pendanaan</label>
-                                <select class="form-control selectric" name="pendanaan">
+                                <select class="form-control selectric js-example-basic-single"
+                                    data-placeholder="Pilih Pendanaan" name="pendanaan">
                                     <option> </option>
                                     <option>Mandiri</option>
                                     <option>Kampus</option>
@@ -114,7 +119,8 @@
                             </div>
                             <div class="col-12 " style="margin-bottom: 12px">
                                 <label for="">Program Studi</label>
-                                <select class="form-control selectric" name="program_studi">
+                                <select class="form-control selectric js-example-basic-single"
+                                    data-placeholder="Pilih Program Studi" name="program_studi">
                                     <option> </option>
                                     @foreach ($prodi as $item1)
                                         <option value="{{ $item1->ID }}">{{ $item1->program_studi }}</option>
@@ -175,43 +181,15 @@
         src="{{ asset('assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}"></script>
     <script rel="stylesheet" src="{{ asset('assets/modules/datatables/select-1.2.4/css/select.bootstrap4.min.css') }}">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 @endpush
 
 @push('page-script')
     <script type="application/javascript">
-// let data=[]
-
-// $('#formA').on('submit', function (event){
-//     event.preventDefault()  //untuk melakukan keep data agar tidak menjadi json masuk ke
-//     submitform() //mengirimkan data ke database
-    
-// })
-
-// function submitform(){
-//     let form = $('#formA');
-//     const url = "{{ url('addform') }}"; //menggunakan url yang dibuat, data dapat dilihat pada network.
-
-//     $.ajax({
-//         url,
-//         method: "POST",
-//         data:form.serialize(),
-
-//         success:function(response){
-//             console.log(response)
-//             clearform() //untuk hapus isi data
-//             refreshTable() //untuk merefresh halaman
-//         },
-//         error:function(ee){
-//             console.log(ee)
-//             alert("Kesalahan Input") //warning jika ada kesalahan
-//         }
-//     })
-// }
 
 
 function clearform(){
     $("#formA [name='nama_kompetisi']").val('')
-    $("#formA [name='nama_ketua']").val('')
     $("#formA [name='dosen_pembimbing']").val('')
     $("#formA [name='nama_kelompok']").val('')
     $("#formA [name='tingkatan']").val('')
@@ -230,6 +208,10 @@ function refreshTable(){
     },true);
     
 }
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+
+});
 
 
 

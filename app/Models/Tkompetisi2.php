@@ -22,6 +22,7 @@ class Tkompetisi2 extends Model
         'pendanaan',
         'waktu_pelaksanaan',
         'prodi',
+        'proposal',
         'status',
 
     ];

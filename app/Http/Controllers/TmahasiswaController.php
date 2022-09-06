@@ -40,7 +40,7 @@ class TmahasiswaController extends Controller
             'anggota2' => $request->anggota2,
             'anggota3' => $request->anggota3,
             'pendanaan' => $request->pendanaan,
-            'program_studi' => $request->program_studi,
+            'prodi' => $request->program_studi,
             'user_id' => $request->user_id,
             'proposal' => $request->proposal->getClientOriginalName(),
 

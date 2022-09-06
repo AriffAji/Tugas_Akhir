@@ -58,7 +58,9 @@
                                         <td class="text-center">{{ $nm->pendanaan }}</td>
                                         <td class="text-center">{{ $nm->program_studi }}</td>
                                         <td class="text-center">{{ $nm->waktu_pelaksanaan }}</td>
-                                        <td class="text-center ">{{ $nm->status }}</td>
+                                        <td class="text-center "><span
+                                                class="badge badge-danger">{{ $nm->status }}</span>
+                                        </td>
                                         <td class="text-center text-nonwrap">
                                             <a href="{{ route('mahasiswa.edit', $nm->ID) }}"
                                                 class="btn btn-primary btn-action mr-1 "><i class="fas fa-upload"><br>

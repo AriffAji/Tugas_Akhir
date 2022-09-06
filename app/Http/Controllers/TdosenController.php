@@ -19,7 +19,7 @@ class TdosenController extends Controller
     // Persetujuan Dosen
     public function detail()
     {
-        $review2 = DB::table('vsetujuidosen')->where('dosen_pembimbing', Auth::user()->username)->get();
+        $review2 = DB::table('vsetujuidosen')->where('dosen_pembimbing', Auth::user()->username)->where('isDosenAcc', 0)->get();
         return view('dosen.persetujuan', ['review2' => $review2]);
     }
 
@@ -69,6 +69,7 @@ class TdosenController extends Controller
                 'pendanaan' => $value->pendanaan,
                 'waktu_pelaksanaan' => $value->waktu_pelaksanaan,
                 'prodi' => $value->prodi,
+                'proposal' => $value->proposal,
                 'status' => $value->status,
             ]);
         }

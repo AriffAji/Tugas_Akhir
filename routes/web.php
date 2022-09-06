@@ -29,6 +29,9 @@ use App\Http\Controllers\registerDosenController;
 Route::get('/', function () {
     return view('login.landingpage');
 });
+Route::get('/profile', function () {
+    return view('login.profile');
+});
 Route::get('/register', [TregisterController::class, 'index'])->name('login.register')->middleware('guest');
 Route::post('/register', [TregisterController::class, 'create']);
 Route::get('/registerdosen', [registerDosenController::class, 'index'])->name('dosen.register')->middleware('guest');

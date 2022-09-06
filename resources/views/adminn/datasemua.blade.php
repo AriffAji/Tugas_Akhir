@@ -42,7 +42,13 @@
                                         <td class="text-center">{{ $nm->prodi }}</td>
                                         <td class="text-center"><a href="{{ asset('/storage/proposal/' . $nm->proposal) }}"
                                                 target="_blank">{{ $nm->proposal }} </td>
-                                        <td class="text-center">{{ $nm->status }}</td>
+                                        <td class="text-center">
+                                            @if ($nm->status == 'Sedang Mengikuti Lomba')
+                                                <span class="badge badge-danger">{{ $nm->status }}</span>
+                                            @else
+                                                <span class="badge badge-success">{{ $nm->status }}</span>
+                                            @endif
+                                        </td>
                                     </tr>
                                     <?php $number++; ?>
                                 @endforeach

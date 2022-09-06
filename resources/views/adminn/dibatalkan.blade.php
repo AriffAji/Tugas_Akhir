@@ -42,7 +42,8 @@
                                         <td class="text-center">{{ $nm->program_studi }}</td>
                                         <td class="text-center"><a href="{{ asset('/storage/proposal/' . $nm->proposal) }}"
                                                 target="_blank">{{ $nm->proposal }} </td>
-                                        <td class="text-center">{{ $nm->status }}</td>
+                                        <td class="text-center"><span class="badge badge-danger">{{ $nm->status }}</span>
+                                        </td>
                                     </tr>
                                     <?php $number++; ?>
                                 @endforeach
