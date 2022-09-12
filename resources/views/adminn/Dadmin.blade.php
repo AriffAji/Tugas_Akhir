@@ -127,46 +127,47 @@
 @endsection
 
 @push('JSLib')
-    <script src="{{ asset('assets/modules/datatables/datatables.min.js') }}"></script>
-    {{-- <script src="{{ asset('assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js') }}"></script> --}}
+    <script type="text/javascript" src="{{ asset('assets/modules/datatables/datatables.mdatin.js') }}"></script>
+    <script type="text/javascript"
+        src="{{ asset('assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js') }}"></script>
 @endpush
 
 @push('JSFile')
-    {{-- <script src="{{ asset('assets/js/page/modules-datatables.js') }}"></script> --}}
+    <script type="text/javascript" src="{{ asset('assets/js/page/modules-datatables.js') }}"></script>
 @endpush
 
 @push('page-styles')
-    {{-- <script rel="stylesheet" src="{{ asset('assets/modules/datatables/datatables.min.css') }}"></script> --}}
-    <script rel="stylesheet"
-        src="{{ asset('assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}"></script>
-    <script rel="stylesheet" src="{{ asset('assets/modules/datatables/select-1.2.4/css/select.bootstrap4.min.css') }}">
+    <script type="text/javascript" rel="stylesheet" src="{{ asset('assets/modules/datatables/datatables.min.css') }}">
     </script>
+    <script type="text/javascript" rel="stylesheet"
+        src="{{ asset('assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}"></script>
+    <script type="text/javascript" rel="stylesheet"
+        src="{{ asset('assets/modules/datatables/select-1.2.4/css/select.bootstrap4.min.css') }}"></script>
 @endpush
 
 @push('page-script')
-    <script type="application/javascript">
-let data=[]
+    <script type="text/javascript" type="application/javascript">
+        let data = []
 
-const table= $("#table_list").DataTable({
+        const table = $("#table_list").DataTable({
 
-    "ajax":{
-        url:"{{ url('data_dosen') }}",
-        type:"post",
-        data:function(d){
-            d._token = "{{ csrf_token() }}"
-            d.areaaa = $("#area_filter").val()
-        }
-    },
-    columns:[
-        {
-            "class":"",
-            "sortable":true,
-            "render":function(data,type,row,meta){
-               return juara
-            }
-        },
-      
-    ]
-})
-</script>
+            "ajax": {
+                url: "{{ url('data_dosen') }}",
+                type: "post",
+                data: function(d) {
+                    d._token = "{{ csrf_token() }}"
+                    d.areaaa = $("#area_filter").val()
+                }
+            },
+            columns: [{
+                    "class": "",
+                    "sortable": true,
+                    "render": function(data, type, row, meta) {
+                        return juara
+                    }
+                },
+
+            ]
+        })
+    </script>
 @endpush
