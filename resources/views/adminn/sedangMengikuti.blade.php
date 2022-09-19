@@ -38,6 +38,7 @@
                                     <th class="text-center">Dosen Pembimbing</th>
                                     <th class="text-center">Nama Kelompok</th>
                                     <th class="text-center">Program Studi</th>
+                                    <th class="text-center">Proposal</th>
                                     <th class="text-center">Status</th>
 
                                 </tr>
@@ -53,6 +54,9 @@
                                         <td class="text-center">{{ $nm->dosen_pembimbing }}</td>
                                         <td class="text-center">{{ $nm->nama_kelompok }}</td>
                                         <td class="text-center">{{ $nm->prodi }}</td>
+                                        <td class="text-center">{{ $nm->prodi }}</td>
+                                        <td class="text-center"><a href="{{ asset('/storage/proposal/' . $nm->proposal) }}"
+                                                target="_blank">{{ $nm->proposal }} </td>
                                         <td class="text-center">{{ $nm->status }}</td>
                                     </tr>
                                     <?php $number++; ?>

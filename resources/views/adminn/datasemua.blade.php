@@ -24,6 +24,7 @@
                                     <th class="text-center">Pendanaan</th>
                                     <th class="text-center">Program Studi</th>
                                     <th class="text-center">Proposal</th>
+                                    <th class="text-center">Sertifikat</th>
                                     <th class="text-center">Status</th>
                                 </tr>
                             </thead>
@@ -42,6 +43,9 @@
                                         <td class="text-center">{{ $nm->prodi }}</td>
                                         <td class="text-center"><a href="{{ asset('/storage/proposal/' . $nm->proposal) }}"
                                                 target="_blank">{{ $nm->proposal }} </td>
+                                        <td class="text-center"><a
+                                                href="{{ asset('/storage/sertifikat/' . $nm->sertifikat) }}"
+                                                target="_blank">{{ $nm->sertifikat }} </td>
                                         <td class="text-center">
                                             @if ($nm->status == 'Sedang Mengikuti Lomba')
                                                 <span class="badge badge-danger">{{ $nm->status }}</span>
