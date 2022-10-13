@@ -46,6 +46,9 @@ class TdosenController extends Controller
     }
     // Persetujuan Dosen
 
+
+    // Pembatalan Dosen
+
     public function detail2()
     {
         $review2 = DB::table('vpembatalandosen')->where('dosen_pembimbing', Auth::user()->username)->get();
@@ -77,10 +80,5 @@ class TdosenController extends Controller
         return redirect()->back()->with('success', 'Kompetisi Berhasil Dibatalkan');
     }
 
-    //    public function hapusdata($ID){
-    //     echo "hapus ID";
-    //     echo $ID;
-    //     DB::table('tkompetisi')->where("ID","$ID")->delete();
-    //     return redirect()->back()->with('success','Data Berhasil dihapus');
-    //   }
+    // Pembatalan Dosen
 }

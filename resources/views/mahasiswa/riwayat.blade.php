@@ -2,7 +2,7 @@
 @section('judul_halaman', 'Riwayat')
 
 @section('konten')
-    <div class="row mb-5">
+    {{-- <div class="row mb-5">
         <div class="col-5 ">
             <label for="">Tahun :</label>
             <select name="" id="" class="form-control selectric">
@@ -14,8 +14,8 @@
                 <?php
                     }
                 ?>
-                {{-- <option value="">2022</option>
-                <option value="">2021</option> --}}
+                <option value="">2022</option>
+                <option value="">2021</option>
             </select>
         </div>
         <div class="col-5">
@@ -32,7 +32,7 @@
         <div class="col-2" style="margin-top: 30px">
             <button class="btn btn-primary" type="submit"> Search</button>
         </div>
-    </div>
+    </div> --}}
     <div class="row">
         <div class="col-12">
             <div class="card">
