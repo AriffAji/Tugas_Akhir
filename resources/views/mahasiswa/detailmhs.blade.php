@@ -58,6 +58,13 @@
                                         <td class="text-center">{{ $nm->pendanaan }}</td>
                                         <td class="text-center">{{ $nm->program_studi }}</td>
                                         <td class="text-center">{{ $nm->waktu_pelaksanaan }}</td>
+                                        {{-- <td class="text-center">
+                                            @if ($nm->status == 'Sedang Mengikuti Lomba')
+                                                <span class="badge badge-danger">{{ $nm->status }}</span>
+                                            @else
+                                                <span class="badge badge-success">{{ $nm->status }}</span>
+                                            @endif
+                                        </td> --}}
                                         <td class="text-center "><span
                                                 class="badge badge-danger">{{ $nm->status }}</span>
                                         </td>

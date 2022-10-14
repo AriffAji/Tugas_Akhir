@@ -51,7 +51,7 @@ class TmahasiswaController extends Controller
     // form masukkan data
     public function detaildata(Request $request)
     {
-        $review = DB::table('vreview')->where('user_id', Auth::user()->id)->get();
+        $review = DB::table('vreview')->where('user_id', Auth::user()->id)->orWhere('isDosenAcc', '1')->get();
         return view('mahasiswa.detailmhs', compact('review'));
     }
 
