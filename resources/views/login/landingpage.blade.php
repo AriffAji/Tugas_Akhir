@@ -100,15 +100,18 @@ https://templatemo.com/tm-537-art-factory
                 </div>
                 <div class="right-text col-lg-5 col-md-12 col-sm-12 mobile-top-fix">
                     <div class="left-heading">
-                        <h5>Vivamus sodales nisi id ante molestie venenatis</h5>
+                        <h5>POLITEKNIK NEGERI BANYUWANGI</h5>
                     </div>
                     <div class="left-text">
-                        <p>This template is <a href="#">last updated on 20 August 2019 </a>for main menu drop-down
-                            arrow and sub menu text color. Duis auctor dolor eu scelerisque vestibulum. Vestibulum
-                            lacinia, nisl sit amet tristique condimentum. <br><br>
-                            Sed a consequat velit. Morbi lectus sapien, vestibulum et sapien sit amet, ultrices
-                            malesuada odio. Donec non quam euismod, mattis dui a, ultrices nisi.</p>
-                        <a href="#about2" class="main-button">Discover More</a>
+                        <p><a href="https://poliwangi.ac.id/">Politeknik Negeri Banyuwangi </a> adalah perguruan tinggi
+                            yang
+                            menyelenggarakan program pendidikan vokasi dalam berbagai rumpun ilmu pengetahuan dan/atau
+                            teknologi dan jika memenuhi syarat dapat menyelenggarakan pendidikan profesi. Pendidikan
+                            Vokasi adalah pendidikan tinggi program diploma yang menyiapkan mahasiswa untuk pekerjaan
+                            dengan keahlian terapan tertentu sampai program sarjana terapan. Berada di <a
+                                href="https://g.page/poliwangi?share"> Jalan Raya Jember
+                                No.KM13 </a>, Kawang, Labanasem, Kec. Kabat, Kabupaten Banyuwangi, Jawa Timur 68461 </p>
+                        {{-- <a href="#about2" class="main-button">Discover More</a> --}}
                     </div>
                 </div>
             </div>

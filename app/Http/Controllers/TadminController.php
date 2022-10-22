@@ -8,6 +8,7 @@ use App\Models\Tkompetisi2;
 use App\Models\tmahasiswa;
 use App\Models\User;
 use App\Models\vall;
+use App\Models\vexport;
 use App\Models\vsedangkompetisi;
 use App\Models\vsudahselesai;
 use Barryvdh\DomPDF\Facade\PDF;
@@ -24,6 +25,9 @@ class TadminController extends Controller
         $sudahselesai = vsudahselesai::where('status', 'Sudah Selesai')->count();
         $dibatalkan = Tkompetisi2::where('status', '1')->count();
         $semua = vall::count();
+
+
+
 
         return view('adminn.Dadmin', compact('juara', 'tidakjuara', 'sedangmengikuti', 'sudahselesai', 'dibatalkan', 'semua'));
     }
@@ -64,17 +68,25 @@ class TadminController extends Controller
     // export PDF
     public function vall(Request $request)
     {
-        $review = DB::table('vall')->get();
+        $review = DB::table('vexport')->get();
         return view('adminn.export.hiddenall', ['review' => $review]);
     }
 
     public function exportsemua()
     {
-        $data = vall::all();
+        $data = vexport::all();
         view()->share('review', $data);
 
         $pdf = PDF::loadview('adminn.export.exportsemua');
         return $pdf->download('datakompetisi.pdf');
     }
     // export PDF
+
+    // download
+    // public function download($proposal)
+    // {
+    //     $data = DB::table('tkompetisi')->where('proposal', $proposal)->first();
+    //     $filepath = storage_path("proposal/{$data->path}");
+    //     return \Response::download($filepath);
+    // }
 }

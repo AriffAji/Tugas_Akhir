@@ -1,5 +1,5 @@
 @extends('layouts/indexmaster')
-@section('judul_halaman', 'Kompetisi dibatalkan')
+@section('judul_halaman', 'Semua Data Mahasiswa')
 
 @section('konten')
 
@@ -7,7 +7,9 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-
+                    <div class="card-header">
+                        <h4><a href="/exportsemua" class="btn btn-icon icon-left btn-primary"> Export PDF</a></h4>
+                    </div>
                     <br>
                 </div>
                 <div class="card-body">
@@ -25,6 +27,7 @@
                                     <th class="text-center">Program Studi</th>
                                     <th class="text-center">Proposal</th>
                                     <th class="text-center">Sertifikat</th>
+                                    <th class="text-center">Waktu Pelaksanaan</th>
                                     <th class="text-center">Status</th>
                                 </tr>
                             </thead>
@@ -46,9 +49,10 @@
                                         <td class="text-center"><a
                                                 href="{{ asset('/storage/sertifikat/' . $nm->sertifikat) }}"
                                                 target="_blank">{{ $nm->sertifikat }} </td>
+                                        <td class="text-center">{{ $nm->waktu_pelaksanaan }}</td>
                                         <td class="text-center">
                                             @if ($nm->status == 'Sedang Mengikuti Lomba')
-                                                <span class="badge badge-danger">{{ $nm->status }}</span>
+                                                <span class="badge badge-warning">{{ $nm->status }}</span>
                                             @else
                                                 <span class="badge badge-success">{{ $nm->status }}</span>
                                             @endif

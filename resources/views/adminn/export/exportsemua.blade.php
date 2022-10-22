@@ -16,7 +16,7 @@
     </style>
     <center>
         <h5>Laporan Kompetisi Mahasiswa</h4>
-            <h6>www.poliwang.ac.id</a>
+            <h6>www.poliwangi.ac.id</a>
         </h5>
     </center>
 
@@ -29,7 +29,7 @@
                 <th class="text-center">Nama Kelompok</th>
                 <th class="text-center">Dosen Pembimbing</th>
                 <th class="text-center">Tingkatan</th>
-                <th class="text-center">Status</th>
+                <th class="text-center">Waktu Pelaksanaan</th>
             </tr>
         </thead>
         <tbody>
@@ -39,11 +39,10 @@
                     <td>{{ $number }}</td>
                     <td class="text-center">{{ $nm->nama_kompetisi }}</td>
                     <td class="text-center">{{ $nm->nama_ketua }}</td>
-                    <td class="text-center">{{ $nm->dosen_pembimbing }}</td>
                     <td class="text-center">{{ $nm->nama_kelompok }}</td>
-                    <th class="text-center">
+                    <td class="text-center">{{ $nm->dosen_pembimbing }}</td>
                     <td class="text-center">{{ $nm->tingkatan }}</td>
-                    <td class="text-center">{{ $nm->status }}</td>
+                    <td class="text-center">{{ $nm->waktu_pelaksanaan }}</td>
                 </tr>
                 <?php $number++; ?>
             @endforeach

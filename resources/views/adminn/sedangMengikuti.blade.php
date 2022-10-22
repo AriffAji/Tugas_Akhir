@@ -39,6 +39,7 @@
                                     <th class="text-center">Nama Kelompok</th>
                                     <th class="text-center">Program Studi</th>
                                     <th class="text-center">Proposal</th>
+                                    <th class="text-center">Waktu Pelaksanaan</th>
                                     <th class="text-center">Status</th>
 
                                 </tr>
@@ -54,10 +55,11 @@
                                         <td class="text-center">{{ $nm->dosen_pembimbing }}</td>
                                         <td class="text-center">{{ $nm->nama_kelompok }}</td>
                                         <td class="text-center">{{ $nm->prodi }}</td>
-                                        <td class="text-center">{{ $nm->prodi }}</td>
                                         <td class="text-center"><a href="{{ asset('/storage/proposal/' . $nm->proposal) }}"
                                                 target="_blank">{{ $nm->proposal }} </td>
-                                        <td class="text-center">{{ $nm->status }}</td>
+                                        <td class="text-center">{{ $nm->waktu_pelaksanaan }}</td>
+                                        <td class="text-center"><span class="badge badge-danger">{{ $nm->status }}</span>
+                                        </td>
                                     </tr>
                                     <?php $number++; ?>
                                 @endforeach

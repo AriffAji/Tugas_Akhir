@@ -1,6 +1,5 @@
- {{-- Notifikasi --}}
  <ul class="navbar-nav navbar-right">
-
+     {{-- Notifikasi --}}
      {{-- <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
              class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
          <div class="dropdown-menu dropdown-list dropdown-menu-right">
@@ -61,6 +60,8 @@
              </div>
          </div>
      </li> --}}
+     {{-- Notifikasi --}}
+
      {{-- Profile --}}
      <ul class="navbar-nav navbar-right">
          <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
@@ -84,4 +85,6 @@
          </li>
 
      </ul>
+     {{-- Profile --}}
+
  </ul>

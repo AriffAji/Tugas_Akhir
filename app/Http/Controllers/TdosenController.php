@@ -54,6 +54,11 @@ class TdosenController extends Controller
         $review2 = DB::table('vpembatalandosen')->where('dosen_pembimbing', Auth::user()->username)->get();
         return view('dosen.pembatalan', ['review2' => $review2]);
     }
+    public function riwayat()
+    {
+        $riwayat = DB::table('vriwayat')->where('dosen_pembimbing', Auth::user()->username)->get();
+        return view('dosen.riwayat', ['riwayat' => $riwayat]);
+    }
 
     public function hapusdata(Request $request, $ID)
     {

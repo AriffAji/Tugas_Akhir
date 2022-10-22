@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\tkompetisi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -51,7 +52,7 @@ class TmahasiswaController extends Controller
     // form masukkan data
     public function detaildata(Request $request)
     {
-        $review = DB::table('vreview')->where('user_id', Auth::user()->id)->orWhere('isDosenAcc', '1')->get();
+        $review = DB::table('vreview')->where('user_id', Auth::user()->id)->get();
         return view('mahasiswa.detailmhs', compact('review'));
     }
 
@@ -101,9 +102,9 @@ class TmahasiswaController extends Controller
     public function riwayat()
     {
         $riwayat = DB::table('vriwayat')->where('user_id', Auth::user()->id)->get();
-        $anggota1 = DB::table('vanggota1')->where('user_id', Auth::user()->id)->first();
-        $anggota2 = DB::table('vanggota2')->where('user_id', Auth::user()->id)->first();
-        $anggota3 = DB::table('vanggota3')->where('user_id', Auth::user()->id)->first();
+        $anggota1 = DB::table('vriwayat')->where('anggota1', Auth::user()->id)->get();
+        $anggota2 = DB::table('vriwayat')->where('anggota2', Auth::user()->id)->get();
+        $anggota3 = DB::table('vriwayat')->where('anggota3', Auth::user()->id)->first();
         // return view('mahasiswa.riwayat', compact('riwayat'));
         return view('mahasiswa.riwayat', compact('riwayat', 'anggota1', 'anggota2', 'anggota3'));
     }

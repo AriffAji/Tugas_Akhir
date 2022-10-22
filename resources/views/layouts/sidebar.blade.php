@@ -52,6 +52,7 @@
                     <a href="/dashboardD"><i class="fas  fa-address-card"></i><span>Dashboard</span></a>
                     <a href="/persetujuand"><i class="fas fa-check-circle"></i><span>Persetujuan</span></a>
                     <a href="/pembataland"><i class="fas fa-ban"></i><span>Pembatalan</span></a>
+                    <a href="/riwayatd"><i class="fas fa-history"></i><span>Riwayat Pendaftaran</span></a>
 
                 </li>
             </ul>

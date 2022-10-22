@@ -49,6 +49,7 @@ Route::get('/datasedangmengikuti', [TadminController::class, 'sedangkompetisi'])
 Route::get('/dataselesailomba', [TadminController::class, 'selesailomba'])->name('admin.sudah')->middleware('admin');
 Route::get('/datasemua', [TadminController::class, 'all'])->name('admin.datadsn')->middleware('admin');
 Route::get('/datadibatalkan', [TadminController::class, 'dibatalkan'])->name('admin.datadibatalkan')->middleware('admin');
+Route::get('download/{id}', [TadminController::class, 'download']);
 // admin
 
 
@@ -70,6 +71,7 @@ Route::get('/editd/{ID}', [TdosenController::class, 'edit'])->name('dosen.edit')
 Route::patch('/updated/{ID}', [TdosenController::class, 'updatedosen'])->name('dosen.update')->middleware('dosen');
 Route::get('/uploadd', [TdosenController::class, 'setujui'])->name('dosen.upload')->middleware('dosen');
 Route::get('/pembataland', [TdosenController::class, 'detail2'])->name('dosen.detail2')->middleware('dosen');
+Route::get('/riwayatd', [TdosenController::class, 'riwayat'])->name('dosen.riwayat')->middleware('dosen');
 Route::get('/hapus{ID}', [TdosenController::class, 'hapusdata'])->name('dosen.hapus')->middleware('dosen');
 Route::get('/file/download/{ID}', [TdosenController::class, 'download'])->name('download.proposal')->middleware('dosen');
 // dosen

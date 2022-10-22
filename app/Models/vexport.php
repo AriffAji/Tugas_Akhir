@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class vall extends Model
+class vexport extends Model
 {
     use HasFactory;
-    protected $table = 'vall';
+    protected $table = 'vexport';
     protected $guarded = [];
 }
