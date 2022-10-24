@@ -67,6 +67,9 @@
                 <!-- menu item -->
                 <li class="nav-item">
                     <a href="/dashboardA"><i class="fas fa-address-card"></i><span>Dashboard</span></a>
+                    <a href="/dataaccdosen"><i class="fas fa-check-double"></i><span>Data Belum Acc Dosen</span></a>
+                    <a href="/dataaccsekdir"><i class="fas fa-check-double"></i><span>Data Belum Acc
+                            Sekdir</span></a>
                     <a href="/datasedangmengikuti"><i class="fas fad fa-user-graduate"></i><span>Data Mahasiswa
                             Lomba</span></a>
                     <a href="/dataselesailomba"><i class="fas fa-check"></i><span>Data Selesai Mahasiswa

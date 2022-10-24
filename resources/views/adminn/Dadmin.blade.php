@@ -91,10 +91,12 @@
                 <div class="card-wrap">
                     <div class="card-header">
                         <h4>Total Data</h4>
+
                     </div>
                     <div class="card-body">
                         {{ $semua }}
                     </div>
+                    {{-- <sub>*komulatif data*</sub> --}}
                 </div>
             </div>
         </div>

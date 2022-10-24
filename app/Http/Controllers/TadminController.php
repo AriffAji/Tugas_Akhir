@@ -24,9 +24,7 @@ class TadminController extends Controller
         $sedangmengikuti = vsedangkompetisi::where('status', 'Sedang Mengikuti Lomba')->count();
         $sudahselesai = vsudahselesai::where('status', 'Sudah Selesai')->count();
         $dibatalkan = Tkompetisi2::where('status', '1')->count();
-        $semua = vall::count();
-
-
+        $semua = (vall::count()) + (Tkompetisi2::count());
 
 
         return view('adminn.Dadmin', compact('juara', 'tidakjuara', 'sedangmengikuti', 'sudahselesai', 'dibatalkan', 'semua'));
@@ -64,6 +62,22 @@ class TadminController extends Controller
         return view('adminn.datasemua', ['semua' => $all]);
     }
     // Data untuk mengeikuti semua Kompetisi
+
+    // Data untuk belum Acc Dosen
+    public function accdosen()
+    {
+        $acc = DB::table('vaccdosen')->get();
+        return view('adminn.datadosen', ['acc' => $acc]);
+    }
+    // Data untuk belum Acc Dosen
+
+    // Data untuk belum Acc Sekdir
+    public function accsekdir()
+    {
+        $accsekdir = DB::table('vaccsekdir')->get();
+        return view('adminn.datasekdir', ['accsekdir' => $accsekdir]);
+    }
+    // Data untuk belum Acc Dosen
 
     // export PDF
     public function vall(Request $request)

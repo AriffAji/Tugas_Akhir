@@ -49,6 +49,8 @@ Route::get('/datasedangmengikuti', [TadminController::class, 'sedangkompetisi'])
 Route::get('/dataselesailomba', [TadminController::class, 'selesailomba'])->name('admin.sudah')->middleware('admin');
 Route::get('/datasemua', [TadminController::class, 'all'])->name('admin.datadsn')->middleware('admin');
 Route::get('/datadibatalkan', [TadminController::class, 'dibatalkan'])->name('admin.datadibatalkan')->middleware('admin');
+Route::get('/dataaccdosen', [TadminController::class, 'accdosen'])->name('admin.dataaccdosen')->middleware('admin');
+Route::get('/dataaccsekdir', [TadminController::class, 'accsekdir'])->name('admin.dataaccsekdir')->middleware('admin');
 Route::get('download/{id}', [TadminController::class, 'download']);
 // admin
 
