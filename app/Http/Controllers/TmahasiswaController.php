@@ -46,7 +46,7 @@ class TmahasiswaController extends Controller
             'proposal' => $request->proposal->getClientOriginalName(),
 
         ]);
-        return redirect()->route('mahasiswa.detail')->with('success', 'Pendaftaran Kompetisi Sukses');
+        return redirect()->route('mahasiswa.detail')->with('success', 'Pendaftaran Kompetisi Berhasil');
     }
 
     // form masukkan data
@@ -60,13 +60,17 @@ class TmahasiswaController extends Controller
     {
         $ID = DB::table('tkompetisi')->where("ID", "$ID")->first();
         $prodi = DB::table('tprodi')->get();
-        return view('mahasiswa.upload', ['ID' => $ID, 'program_studi' => $ID]);
+        $anggota1 = DB::table('vanggota1')->first();
+        $anggota2 = DB::table('vanggota2')->first();
+        $anggota3 = DB::table('vanggota3')->first();
+        $dosen = DB::table('vuser')->first();
+        return view('mahasiswa.upload', compact('ID', 'prodi', 'anggota1', 'anggota2', 'anggota3', 'dosen'));
     }
 
     public function update(Request $request, $ID)
     {
-        $sertifikat = $request->file('isertifikat')->getClientOriginalName();
-        $request->file('isertifikat')->storeAs('sertifikat/', $sertifikat);
+        $sertifikat = $request->file('sertifikat')->getClientOriginalName();
+        $request->file('sertifikat')->storeAs('sertifikat/', $sertifikat);
         $this->_validasi($request);
         DB::table('tkompetisi')->where("ID", $ID)->update([
 
@@ -81,12 +85,13 @@ class TmahasiswaController extends Controller
             'status' => $request->status,
             'prestasi' => $request->prestasi,
             'penyerapan_dana' => $request->penyerapan_dana,
-            'program_studi' => $request->program_studi,
+            'prodi' => $request->program_studi,
             'user_id' => $request->user_id,
             'sertifikat' => $request->sertifikat->getClientOriginalName(),
 
         ]);
-        return redirect()->route('mahasiswa.detail')->with('message', 'Data Berhasil diupdate');
+        dd($request->all());
+        return redirect()->route('mahasiswa.riwayat')->with('success', 'Kompetisi Selesai');
     }
 
     public function uploadsertifikat()
@@ -102,11 +107,11 @@ class TmahasiswaController extends Controller
     public function riwayat()
     {
         $riwayat = DB::table('vriwayat')->where('user_id', Auth::user()->id)->get();
-        $anggota1 = DB::table('vriwayat')->where('anggota1', Auth::user()->id)->get();
-        $anggota2 = DB::table('vriwayat')->where('anggota2', Auth::user()->id)->get();
-        $anggota3 = DB::table('vriwayat')->where('anggota3', Auth::user()->id)->first();
-        // return view('mahasiswa.riwayat', compact('riwayat'));
-        return view('mahasiswa.riwayat', compact('riwayat', 'anggota1', 'anggota2', 'anggota3'));
+        // $anggota1 = DB::table('vriwayat')->where('anggota1', Auth::user()->id)->get();
+        // $anggota2 = DB::table('vriwayat')->where('anggota2', Auth::user()->id)->get();
+        // $anggota3 = DB::table('vriwayat')->where('anggota3', Auth::user()->id)->first();
+        return view('mahasiswa.riwayat', compact('riwayat'));
+        // return view('mahasiswa.riwayat', compact('riwayat', 'anggota1', 'anggota2', 'anggota3'));
     }
 
     public function _validation(Request $request)
@@ -122,6 +127,7 @@ class TmahasiswaController extends Controller
             'anggota2' => 'required|',
             'anggota3' => 'required|',
             'pendanaan' => 'required|',
+            'proposal' => 'required|mimes:pdf|max:1024',
             'proposal' => 'required|mimes:pdf|max:1024',
         ]);
     }

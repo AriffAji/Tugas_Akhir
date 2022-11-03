@@ -3,28 +3,20 @@
 
 @section('konten')
 
+    @if (session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" style="border-radius:10px" role="alert">
+            {{ session()->get('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
 
-                    @if (session()->has('success'))
-                        <div class="alert alert-success alert-dismissible fade show" style="border-radius:10px" role="alert">
-                            {{ session()->get('success') }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    @endif
-                    @if (session()->has('loginError'))
-                        <div class="alert alert-danger alert-dismissible fade show" style="border-radius:10px"
-                            role="alert">
-                            {{ session()->get('loginError') }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    @endif
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -57,7 +49,7 @@
                                         <td class="text-center">{{ $nm->tingkatan }}</td>
                                         <td class="text-center">{{ $nm->pendanaan }}</td>
                                         <td class="text-center">{{ $nm->program_studi }}</td>
-                                        <td class="text-center">{{ $nm->waktu_pelaksanaan }}</td>
+                                        <td class="text-center">{{ date('d F Y', strtotime($nm->waktu_pelaksanaan)) }}</td>
                                         {{-- <td class="text-center">
                                             @if ($nm->status == 'Sedang Mengikuti Lomba')
                                                 <span class="badge badge-danger">{{ $nm->status }}</span>

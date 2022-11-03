@@ -53,6 +53,8 @@
                     <a href="/persetujuand"><i class="fas fa-check-circle"></i><span>Persetujuan</span></a>
                     <a href="/pembataland"><i class="fas fa-ban"></i><span>Pembatalan</span></a>
                     <a href="/riwayatd"><i class="fas fa-history"></i><span>Riwayat Pendaftaran</span></a>
+                    <a href="/riwayatbatal"><i class="fas fa-history"></i><span>Riwayat Pendaftaran
+                            dibatalkan</span></a>
 
                 </li>
             </ul>

@@ -58,10 +58,33 @@ class TadminController extends Controller
     // Data untuk mengeikuti semua Kompetisi
     public function all()
     {
-        $all = DB::table('vall')->get();
-        return view('adminn.datasemua', ['semua' => $all]);
+        $all = DB::table('vall')->select()->get();
+        $prodi = DB::table('tprodi')->get();
+        return view('adminn.datasemua', ['all' => $all]);
+        // return view('adminn.datasemua', compact('all', 'prodi'));
     }
     // Data untuk mengeikuti semua Kompetisi
+
+    //periode
+    public function periode(Request $request)
+    {
+        $fromDate = $request->input("fromDate");
+        $toDate = $request->input("toDate");
+
+        try {
+            $all = DB::table('vall')->select()
+                ->where('waktu_pelaksanaan', '>=', $fromDate)
+                ->where('waktu_pelaksanaan', '<=', $toDate)
+                ->get();
+            // dd($all);
+        } catch (\Exception $e) {
+
+            return redirect()->back();
+        }
+        return view('adminn.datasemua', compact('all'));
+    }
+
+    // periode
 
     // Data untuk belum Acc Dosen
     public function accdosen()
@@ -79,6 +102,7 @@ class TadminController extends Controller
     }
     // Data untuk belum Acc Dosen
 
+
     // export PDF
     public function vall(Request $request)
     {
@@ -88,7 +112,7 @@ class TadminController extends Controller
 
     public function exportsemua()
     {
-        $data = vexport::all();
+        $data = vall::all();
         view()->share('review', $data);
 
         $pdf = PDF::loadview('adminn.export.exportsemua');
@@ -96,11 +120,5 @@ class TadminController extends Controller
     }
     // export PDF
 
-    // download
-    // public function download($proposal)
-    // {
-    //     $data = DB::table('tkompetisi')->where('proposal', $proposal)->first();
-    //     $filepath = storage_path("proposal/{$data->path}");
-    //     return \Response::download($filepath);
-    // }
+
 }

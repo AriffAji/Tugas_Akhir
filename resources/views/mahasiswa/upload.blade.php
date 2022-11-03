@@ -11,7 +11,24 @@
                 @csrf
                 @method('patch')
                 <div class="card-header" id="form-warna">
-                    Header
+                    @if (session()->has('success'))
+                        <div class="alert alert-success alert-dismissible fade show" style="border-radius:10px" role="alert">
+                            {{ session()->get('success') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
+                    @if (session()->has('loginError'))
+                        <div class="alert alert-danger alert-dismissible fade show" style="border-radius:10px"
+                            role="alert">
+                            {{ session()->get('loginError') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
+                    <br>
 
                     {{-- MUST READONLY --}}
                 </div>
@@ -57,15 +74,15 @@
                                                     value="{{ $ID->nama_ketua }}" @endif>
                                     </div>
 
-                                    <div class="col-12 " style="margin-bottom: 12px">
+                                    <div class="col-12 " style="margin-bottom: 12px" hidden>
                                         <label for=""
                                             @error('dosen_pembimbing')
                                                             class="text-danger"                
-                                                        @enderror
+                                                        @enderror>
                                             Dosen Pembimbing
                                             @error('dosen_pembimbing')
-                                                            | {{ $message }}
-                                                        @enderror>
+                                                | {{ $message }}
+                                            @enderror
                                         </label>
                                         <input type="text" maxlength="100" name="dosen_pembimbing" class="form-control"
                                             readonly
@@ -79,11 +96,11 @@
                                         <label for=""
                                             @error('nama_kelompok')
                                                             class="text-danger"                
-                                                        @enderror
+                                                        @enderror>
                                             Nama Kelompok
                                             @error('nama_kelompok')
-                                                            | {{ $message }}
-                                                        @enderror>
+                                                | {{ $message }}
+                                            @enderror
                                         </label>
                                         <input type="text" maxlength="12" name="nama_kelompok" class="form-control"
                                             readonly
@@ -96,11 +113,11 @@
                                         <label for=""
                                             @error('tingkatan')
                                                             class="text-danger"                
-                                                        @enderror
+                                                        @enderror>
                                             Nama Kelompok
                                             @error('tingkatan')
-                                                            | {{ $message }}
-                                                        @enderror>
+                                                | {{ $message }}
+                                            @enderror
                                         </label>
                                         <input type="text" maxlength="12" name="tingkatan" class="form-control" readonly
                                             @if (old('tingkatan')) value="{{ old('tingkatan') }}"
@@ -112,17 +129,19 @@
                                         <label for=""
                                             @error('waktu_pelaksanaan')
                                                             class="text-danger"                
-                                                        @enderror
+                                                        @enderror>
                                             Waktu Pelaksanaan
                                             @error('waktu_pelaksanaan')
-                                                            | {{ $message }}
-                                                        @enderror>
+                                                | {{ $message }}
+                                            @enderror
                                         </label>
                                         <input type="text" maxlength="12" name="waktu_pelaksanaan" class="form-control"
                                             readonly
                                             @if (old('waktu_pelaksanaan')) value="{{ old('waktu_pelaksanaan') }}"
                                                     @else 
                                                         value="{{ $ID->waktu_pelaksanaan }}" @endif>
+                                        {{-- value="{{ date('d F Y', strtotime($ID->waktu_pelaksanaan)) }}" @endif> --}}
+
                                     </div>
 
                                 </div>
@@ -136,16 +155,16 @@
                                         <label for=""
                                             @error('anggota1')
                                             class="text-danger"                
-                                        @enderror
+                                        @enderror>
                                             Nama Anggota 1
                                             @error('anggota1')
-                                         {{ $message }}
-                                        @enderror>
+                                                {{ $message }}
+                                            @enderror
                                         </label>
                                         <input type="text" maxlength="12" name="anggota1" class="form-control" readonly
                                             @if (old('anggota1')) value="{{ old('anggota1') }}"
                                         @else 
-                                            value="{{ $ID->anggota1 }}" @endif>
+                                            value="{{ $anggota1->anggota1 }}" @endif>
                                     </div>
 
                                     <div class="col-12 " style="margin-bottom: 12px">
@@ -153,50 +172,51 @@
                                             @error('anggota2')
                                             class="text-danger"                
                                         @enderror
-                                            Nama Anggota 2
+                                            Nama Anggota 2>
                                             @error('anggota2')
-                                         {{ $message }}
-                                        @enderror>
+                                                {{ $message }}
+                                            @enderror
                                         </label>
                                         <input type="text" maxlength="12" name="anggota2" class="form-control" readonly
                                             @if (old('anggota2')) value="{{ old('anggota2') }}"
                                         @else 
-                                            value="{{ $ID->anggota2 }}" @endif>
+                                            value="{{ $anggota2->anggota2 }}" @endif>
                                     </div>
 
                                     <div class="col-12 " style="margin-bottom: 12px">
                                         <label for=""
                                             @error('anggota3')
                                             class="text-danger"                
-                                        @enderror
+                                        @enderror>
                                             Nama Anggota 3
                                             @error('anggota3')
-                                         {{ $message }}
-                                        @enderror>
+                                                {{ $message }}
+                                            @enderror
                                         </label>
                                         <input type="text" maxlength="12" name="anggota3" class="form-control" readonly
                                             @if (old('anggota3')) value="{{ old('anggota3') }}"
                                         @else 
-                                            value="{{ $ID->anggota3 }}" @endif>
+                                            value="{{ $anggota3->anggota3 }}" @endif>
                                     </div>
 
                                     <div class="col-12 " style="margin-bottom: 12px">
                                         <label for=""
                                             @error('pendanaan')
                                             class="text-danger"                
-                                        @enderror
+                                        @enderror>
                                             Pendanaan
                                             @error('pendanaan')
-                                         {{ $message }}
-                                        @enderror>
+                                                {{ $message }}
+                                            @enderror
                                         </label>
-                                        <input type="text" maxlength="12" name="pendanaan" class="form-control" readonly
+                                        <input type="text" maxlength="12" name="pendanaan" class="form-control"
+                                            readonly
                                             @if (old('pendanaan')) value="{{ old('pendanaan') }}"
                                         @else 
                                             value="{{ $ID->pendanaan }}" @endif>
                                     </div>
 
-                                    {{-- <div class="col-12 " style="margin-bottom: 12px">
+                                    <div class="col-12 " style="margin-bottom: 12px" hidden>
                                         <label for=""
                                             @error('prodi')
                                             class="text-danger"                
@@ -206,24 +226,29 @@
                                                 {{ $message }}
                                             @enderror
                                         </label>
-                                        <input type="text" maxlength="12" name="pendanaan" class="form-control" readonly
+                                        <input type="text" maxlength="12" name="program_studi" class="form-control"
+                                            readonly
                                             @if (old('prodi')) value="{{ old('prodi') }}"
                                         @else 
-                                            value="{{ $ID->program_studi }}" @endif>
-                                    </div> --}}
+                                            value="{{ $ID->prodi }}" @endif>
+                                    </div>
 
-                                    {{-- <div class="col-12 " style="margin-bottom: 12px">
-                                        <label for="">
+                                    <div class="col-12 " style="margin-bottom: 12px" hidden>
+                                        <label for=""
                                             @error('proposal')
                                                 class="text-danger"
-                                            @enderror
+                                            @enderror>
                                             Proposal
                                             @error('proposal')
                                                 | {{ $message }}
                                             @enderror
                                         </label>
-                                        <input type="text" maxlength="12" name="proposal" class="form-control" readonly>
-                                    </div> --}}
+                                        <input type="text" maxlength="12" name="proposal" class="form-control"
+                                            readonly
+                                            @if (old('proposal')) value="{{ old('proposal') }}"
+                                        @else 
+                                            value="{{ $ID->proposal }}" @endif>
+                                    </div>
                                     {{-- Harus ReadOnly2 --}}
                                 </div>
                             </div>
@@ -239,7 +264,8 @@
                     <div class="form-group form-floating">
                         <div class="row col-12">
                             <div class="card-body col-12">
-                                <input type="hidden" maxlength="12" name="status" class="form-control" value="0">
+                                <input type="hidden" maxlength="12" name="status" class="form-control"
+                                    value="0">
                                 <div class="row">
                                     <div class=" col-12" style="margin-bottom: 12px">
                                         <label for="">Prestasi</label>
@@ -257,11 +283,20 @@
                                     </div>
                                     <div class=" col-12" style="margin-bottom: 12px">
                                         <label for="">Sertifikat</label>
-                                        <input type="file" maxlength="12" name="sertifikat" class="form-control"
-                                            placeholder="Masukkan Nama Kompetisi . . . .">
+                                        <input type="file" name="sertifikat" class="form-control"
+                                            class="form-control @error('sertifikat') is-invalid @enderror">
+                                        @error('sertifikat')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                        {{-- <input type="file" maxlength="12" name="sertifikat" class="form-control"
+                                            placeholder="Masukkan Nama Kompetisi . . . ."> --}}
                                         <sub>Note : Penamaan File(NamaKompetisi_NamaKelompok_NamaKetuaKelompok.pdf)</sub>
                                     </div>
-
+                                    <div class="col-12 " style="margin-bottom: 12px">
+                                        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                                    </div>
 
                                 </div>
                             </div>
@@ -273,7 +308,7 @@
                 <div class="card-footer" style="text-align: right; margin-right:2%">
                     <button type="button" class="btn btn-secondary " onclick="clearform()"
                         id="tombolClear">Clear</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary">Setujui</button>
 
                 </div>
             </form>

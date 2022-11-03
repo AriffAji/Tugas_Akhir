@@ -35,7 +35,7 @@
                                     <tr>
                                         <td>{{ $number }}</td>
                                         <td class="text-center">{{ $nm->nama_kompetisi }}</td>
-                                        <td class="text-center">{{ $nm->nama_ketua }}</td>
+                                        <td class="text-center">{{ strtoupper($nm->nama_ketua) }}</td>
                                         <td class="text-center">{{ $nm->nama_kelompok }}</td>
                                         <td class="text-center">{{ $nm->dosen_pembimbing }}</td>
                                         <td class="text-center">{{ $nm->tingkatan }}</td>
@@ -43,7 +43,7 @@
                                         <td class="text-center">{{ $nm->program_studi }}</td>
                                         <td class="text-center"><a href="{{ asset('/storage/proposal/' . $nm->proposal) }}"
                                                 target="_blank">{{ $nm->proposal }} </td>
-                                        <td class="text-center">{{ $nm->waktu_pelaksanaan }}</td>
+                                        <td class="text-center">{{ date('d F Y', strtotime($nm->waktu_pelaksanaan)) }}</td>
                                         <td class="text-center"><span class="badge badge-danger">{{ $nm->status }}</span>
                                         </td>
                                     </tr>

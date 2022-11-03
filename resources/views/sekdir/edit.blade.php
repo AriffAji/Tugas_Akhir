@@ -122,7 +122,8 @@
                                             readonly
                                             @if (old('waktu_pelaksanaan')) value="{{ old('waktu_pelaksanaan') }}"
                                                     @else 
-                                                        value="{{ $ID->waktu_pelaksanaan }}" @endif>
+                                                        {{-- value="{{ $ID->waktu_pelaksanaan }}" @endif> --}}
+                                                        value="{{ date('d F Y', strtotime($ID->waktu_pelaksanaan)) }}" @endif>
                                     </div>
                                     <div class="col-12 " style="margin-bottom: 12px">
                                         <input type="hidden" maxlength="255" name="oldProposal" class="form-control"

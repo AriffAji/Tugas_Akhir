@@ -19,7 +19,8 @@
                                 <label for="nama_kompetisi">Nama Kompetisi</label>
                                 <input type="text" maxlength="100" name="nama_kompetisi"
                                     class="form-control @error('nama_kompetisi') is-invalid @enderror"
-                                    placeholder="Masukkan Nama Kompetisi..." required value="{{ old('nama_kompetisi') }}">
+                                    placeholder="Masukkan Nama Kompetisi..." required value="{{ old('nama_kompetisi') }}"
+                                    autocomplete="off">
                                 @error('nama_kompetisi')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -151,7 +152,7 @@
                         id="tombolHapus">Hapus</button>
                     <button type="button" class="btn btn-secondary " onclick="clearform()"
                         id="tombolClear">Clear</button>
-                    <button type="submit" class="btn btn-primary"> Save</button>
+                    <button type="submit" class="btn btn-primary">Daftar</button>
 
                 </div>
             </form>

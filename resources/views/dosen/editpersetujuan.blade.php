@@ -120,7 +120,8 @@
                                         readonly
                                         @if (old('waktu_pelaksanaan')) value="{{ old('waktu_pelaksanaan') }}"
                                                     @else 
-                                                        value="{{ $ID->waktu_pelaksanaan }}" @endif>
+                                                        {{-- value="{{ $ID->waktu_pelaksanaan }}" @endif> --}}
+                                                        value="{{ date('d F Y', strtotime($ID->waktu_pelaksanaan)) }}" @endif>
                                 </div>
 
                             </div>
@@ -221,7 +222,7 @@
                 </div>
 
                 <div class="card-footer" style="text-align: right; margin-right:2%">
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary">Setujui</button>
 
                 </div>
             </form>

@@ -2,37 +2,15 @@
 @section('judul_halaman', 'Riwayat')
 
 @section('konten')
-    {{-- <div class="row mb-5">
-        <div class="col-5 ">
-            <label for="">Tahun :</label>
-            <select name="" id="" class="form-control selectric">
-                <?php
-                    $now=date('Y');
-                     for ($i=2015; $i<=$now ; $i++) {
-                ?>
-                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                <?php
-                    }
-                ?>
-                <option value="">2022</option>
-                <option value="">2021</option>
-            </select>
+    @if (session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" style="border-radius:10px" role="alert">
+            {{ session()->get('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
-        <div class="col-5">
-            <label for="">Jenis Kompetisi :</label>
-            <select name="" id="" class="form-control selectric ">
-                <option value="">PKM</option>
-                <option value="">
-                    @foreach ($riwayat as $nm)
-                        <td class="text-center">{{ $nm->nama_kompetisi }}</td>
-                    @endforeach
-                </option>
-            </select>
-        </div>
-        <div class="col-2" style="margin-top: 30px">
-            <button class="btn btn-primary" type="submit"> Search</button>
-        </div>
-    </div> --}}
+    @endif
+
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -48,9 +26,9 @@
                                     <th class="text-center">Nama Ketua</th>
                                     <th class="text-center">Dosen Pembimbing</th>
                                     <th class="text-center">Nama Kelompok</th>
-                                    <th class="text-center">Anggota 1</th>
+                                    {{-- <th class="text-center">Anggota 1</th>
                                     <th class="text-center">Anggota 2</th>
-                                    <th class="text-center">Anggota 3</th>
+                                    <th class="text-center">Anggota 3</th> --}}
                                     <th class="text-center">Tingkatan</th>
                                     <th class="text-center">Pendanaan</th>
                                     <th class="text-center">Waktu Pelaksanaan</th>
@@ -68,12 +46,12 @@
                                         <td class="text-center">{{ $nm->nama_ketua }}</td>
                                         <td class="text-center">{{ $nm->dosen_pembimbing }}</td>
                                         <td class="text-center">{{ $nm->nama_kelompok }}</td>
-                                        <td class="text-center">{{ $anggota1->anggota1 }}</td>
-                                        <td class="text-center">{{ $anggota2->anggota2 }}</td>
-                                        <td class="text-center">{{ $anggota3->anggota3 }}</td>
+                                        {{-- <td class="text-center">{{ $nm->anggota1 }}</td>
+                                        <td class="text-center">{{ $nm->anggota2 }}</td>
+                                        <td class="text-center">{{ $nm->anggota3 }}</td> --}}
                                         <td class="text-center">{{ $nm->tingkatan }}</td>
                                         <td class="text-center">{{ $nm->pendanaan }}</td>
-                                        <td class="text-center">{{ $nm->waktu_pelaksanaan }}</td>
+                                        <td class="text-center">{{ date('d F Y', strtotime($nm->waktu_pelaksanaan)) }}</td>
                                         <td class="text-center"><a href="{{ asset('/storage/proposal/' . $nm->proposal) }}"
                                                 target="_blank">{{ $nm->proposal }} </td>
                                         <td class="text-center"><a

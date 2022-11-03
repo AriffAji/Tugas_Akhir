@@ -62,8 +62,7 @@
                                                 href="{{ asset('/storage/sertifikat/' . $nm->sertifikat) }}"
                                                 target="_blank">{{ $nm->sertifikat }} </td>
                                         <td class="text-center">{{ $nm->prestasi }}</td>
-                                        <td class="text-center">{{ $nm->sertifikat }}</td>
-                                        <td class="text-center">{{ $nm->waktu_pelaksanaan }}</td>
+                                        <td class="text-center">{{ date('d F Y', strtotime($nm->waktu_pelaksanaan)) }}</td>
                                         <td class="text-center"><span
                                                 class="badge badge-success">{{ $nm->status }}</span>
                                         </td>

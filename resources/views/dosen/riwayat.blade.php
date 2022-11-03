@@ -37,7 +37,7 @@
                                         <td class="text-center">{{ $nm->nama_kelompok }}</td>
                                         <td class="text-center">{{ $nm->tingkatan }}</td>
                                         <td class="text-center">{{ $nm->pendanaan }}</td>
-                                        <td class="text-center">{{ $nm->waktu_pelaksanaan }}</td>
+                                        <td class="text-center">{{ date('d F Y', strtotime($nm->waktu_pelaksanaan)) }}</td>
                                         <td class="text-center"><a href="{{ asset('/storage/proposal/' . $nm->proposal) }}"
                                                 target="_blank">{{ $nm->proposal }} </td>
                                         <td class="text-center"><a

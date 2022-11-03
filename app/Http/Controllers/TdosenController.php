@@ -34,7 +34,7 @@ class TdosenController extends Controller
         $anggota1 = DB::table('vanggota1')->first();
         $anggota2 = DB::table('vanggota2')->first();
         $anggota3 = DB::table('vanggota3')->first();
-        return view('dosen.editpersetujuan', compact('ID', 'anggota1', 'anggota2', 'anggota3'))->with('message', 'Data Berhasil diupdate');
+        return view('dosen.editpersetujuan', compact('ID', 'anggota1', 'anggota2', 'anggota3'))->with('success', 'Data Berhasil disetujui');
     }
 
     public function updatedosen(Request $request, $ID)
@@ -42,7 +42,7 @@ class TdosenController extends Controller
         DB::table('tkompetisi')->where("ID", $ID)->update([
             'isDosenAcc' => $request->isDosenAcc,
         ]);
-        return redirect()->route('dosen.detail')->with('message', 'Data Berhasil diupdate');
+        return redirect()->route('dosen.detail')->with('success', 'Data Berhasil disetujui');
     }
     // Persetujuan Dosen
 
@@ -53,11 +53,6 @@ class TdosenController extends Controller
     {
         $review2 = DB::table('vpembatalandosen')->where('dosen_pembimbing', Auth::user()->username)->get();
         return view('dosen.pembatalan', ['review2' => $review2]);
-    }
-    public function riwayat()
-    {
-        $riwayat = DB::table('vriwayat')->where('dosen_pembimbing', Auth::user()->username)->get();
-        return view('dosen.riwayat', ['riwayat' => $riwayat]);
     }
 
     public function hapusdata(Request $request, $ID)
@@ -86,4 +81,20 @@ class TdosenController extends Controller
     }
 
     // Pembatalan Dosen
+
+
+    // Riwayat
+    public function riwayat()
+    {
+        $riwayat = DB::table('vriwayat')->where('dosen_pembimbing', Auth::user()->username)->get();
+        return view('dosen.riwayat', ['riwayat' => $riwayat]);
+    }
+    public function dibatalkan()
+    {
+        $dibatalkan = DB::table('vdibatalkan')->where('dosen_pembimbing', Auth::user()->username)->get();
+        return view('dosen.batal', ['dibatalkan' => $dibatalkan]);
+    }
+    // Riwayat
+
+
 }

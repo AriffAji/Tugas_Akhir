@@ -51,6 +51,7 @@ Route::get('/datasemua', [TadminController::class, 'all'])->name('admin.datadsn'
 Route::get('/datadibatalkan', [TadminController::class, 'dibatalkan'])->name('admin.datadibatalkan')->middleware('admin');
 Route::get('/dataaccdosen', [TadminController::class, 'accdosen'])->name('admin.dataaccdosen')->middleware('admin');
 Route::get('/dataaccsekdir', [TadminController::class, 'accsekdir'])->name('admin.dataaccsekdir')->middleware('admin');
+Route::post('/periode', [TadminController::class, 'periode'])->name('admin.periode')->middleware('admin');
 Route::get('download/{id}', [TadminController::class, 'download']);
 // admin
 
@@ -74,6 +75,7 @@ Route::patch('/updated/{ID}', [TdosenController::class, 'updatedosen'])->name('d
 Route::get('/uploadd', [TdosenController::class, 'setujui'])->name('dosen.upload')->middleware('dosen');
 Route::get('/pembataland', [TdosenController::class, 'detail2'])->name('dosen.detail2')->middleware('dosen');
 Route::get('/riwayatd', [TdosenController::class, 'riwayat'])->name('dosen.riwayat')->middleware('dosen');
+Route::get('/riwayatbatal', [TdosenController::class, 'dibatalkan'])->name('dosen.dibatalkan')->middleware('dosen');
 Route::get('/hapus{ID}', [TdosenController::class, 'hapusdata'])->name('dosen.hapus')->middleware('dosen');
 Route::get('/file/download/{ID}', [TdosenController::class, 'download'])->name('download.proposal')->middleware('dosen');
 // dosen
@@ -83,7 +85,7 @@ Route::get('/dashboardS', [TsekdirController::class, 'index'])->name('sekdir.das
 Route::get('/persetujuans', [TsekdirController::class, 'detail'])->name('sekdir.persetujuan')->middleware('sekdir');
 Route::get('/edits/{ID}', [TsekdirController::class, 'edit'])->name('sekdir.edit')->middleware('sekdir');
 Route::patch('updateS/{ID}', [TsekdirController::class, 'update'])->name('sekdir.update')->middleware('sekdir');
-Route::get('/uploads', [TsekdirController::class, 'upload'])->name('sekdir.upload')->middleware('sekdir');
+// Route::get('/uploads', [TsekdirController::class, 'upload'])->name('sekdir.upload')->middleware('sekdir');
 // sekdir
 
 // superadmin

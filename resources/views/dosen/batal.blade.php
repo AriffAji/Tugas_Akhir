@@ -1,22 +1,12 @@
 @extends('layouts/indexmaster')
-@section('judul_halaman', 'Pembatalan Kompetisi')
+@section('judul_halaman', 'Riwayat Kompetisi dibatalkan')
 
 @section('konten')
-    @if (session()->has('success'))
-        <div class="alert alert-success alert-dismissible fade show" style="border-radius:10px" role="alert">
-            {{ session()->get('success') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
-
 
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -28,36 +18,32 @@
                                     <th class="text-center">Nama Ketua</th>
                                     <th class="text-center">Dosen Pembimbing</th>
                                     <th class="text-center">Nama Kelompok</th>
-                                    <th class="text-center">Proposal</th>
+                                    <th class="text-center">Tingkatan</th>
                                     <th class="text-center">Pendanaan</th>
-                                    <th class="text-center">ACTION</th>
+                                    <th class="text-center">Waktu Pelaksanaan</th>
+                                    <th class="text-center">Proposal</th>
+                                    <th class="text-center">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $number = 1; ?>
-                                @foreach ($review2 as $nm)
+                                @foreach ($dibatalkan as $nm)
                                     <tr>
                                         <td>{{ $number }}</td>
                                         <td class="text-center">{{ $nm->nama_kompetisi }}</td>
                                         <td class="text-center">{{ $nm->nama_ketua }}</td>
                                         <td class="text-center">{{ $nm->dosen_pembimbing }}</td>
                                         <td class="text-center">{{ $nm->nama_kelompok }}</td>
+                                        <td class="text-center">{{ $nm->tingkatan }}</td>
+                                        <td class="text-center">{{ $nm->pendanaan }}</td>
+                                        <td class="text-center">{{ date('d F Y', strtotime($nm->waktu_pelaksanaan)) }}</td>
                                         <td class="text-center"><a href="{{ asset('/storage/proposal/' . $nm->proposal) }}"
                                                 target="_blank">{{ $nm->proposal }} </td>
-                                        <td class="text-center">{{ $nm->pendanaan }}</td>
-                                        <td class="text-center text-nonwrap">
-                                            <a href="{{ route('dosen.hapus', $nm->ID) }}"
-                                                class="btn btn-danger btn-action mr-1" method="POST"
-                                                onclick="return confirm('Yakin Kompetisi akan dibatalkan?');">
-                                                @csrf
-                                                @method('delete')
-                                                <i class="fas fa-ban"><br>Batalkan</i>
-                                            </a>
-                                        </td>
+                                        <td class="text-center "><span
+                                                class="badge badge-danger">{{ $nm->status }}</span></td>
                                     </tr>
                                     <?php $number++; ?>
                                 @endforeach
-
                             </tbody>
                         </table>
                     </div>
